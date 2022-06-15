@@ -20,18 +20,28 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="C++、Java、MySQL、Linux、安全、BMC">
+  <meta name="description" content="Redis。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="happy">
+<meta property="og:title" content="Redis笔记">
 <meta property="og:url" content="http://example.com/2022/06/05/happy/index.html">
 <meta property="og:site_name" content="Live For Code">
-<meta property="og:description" content="C++、Java、MySQL、Linux、安全、BMC">
+<meta property="og:description" content="Redis。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:/Users/89635/AppData/Roaming/Typora/typora-user-images/image-20220605195710278.png">
+<meta property="og:image" content="c:/Users/89635/AppData/Roaming/Typora/typora-user-images/image-20220605200658984.png">
+<meta property="og:image" content="c:/Users/89635/AppData/Roaming/Typora/typora-user-images/image-20220605234246545.png">
+<meta property="og:image" content="c:/Users/89635/AppData/Roaming/Typora/typora-user-images/image-20220612223712641.png">
+<meta property="og:image" content="c:/Users/89635/AppData/Roaming/Typora/typora-user-images/image-20220612223734789.png">
+<meta property="og:image" content="c:/Users/89635/AppData/Roaming/Typora/typora-user-images/image-20220612224106993.png">
+<meta property="og:image" content="c:/Users/89635/AppData/Roaming/Typora/typora-user-images/image-20220613233641936.png">
+<meta property="og:image" content="c:/Users/89635/AppData/Roaming/Typora/typora-user-images/image-20220614000103034.png">
+<meta property="og:image" content="c:/Users/89635/AppData/Roaming/Typora/typora-user-images/image-20220614000247057.png">
 <meta property="article:published_time" content="2022-06-05T10:12:09.000Z">
-<meta property="article:modified_time" content="2022-06-05T10:12:09.759Z">
+<meta property="article:modified_time" content="2022-06-15T16:06:17.709Z">
 <meta property="article:author" content="Li Honghao">
-<meta property="article:tag" content="C++、Java、Mysql、Linux">
+<meta property="article:tag" content="redis">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/89635/AppData/Roaming/Typora/typora-user-images/image-20220605195710278.png">
 
 <link rel="canonical" href="http://example.com/2022/06/05/happy/">
 
@@ -46,7 +56,7 @@
   };
 </script>
 
-  <title>happy | Live For Code</title>
+  <title>Redis笔记 | Live For Code</title>
   
 
 
@@ -209,7 +219,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          happy
+          Redis笔记
         </h1>
 
         <div class="post-meta">
@@ -221,9 +231,25 @@
 
               <time title="创建时间：2022-06-05 18:12:09" itemprop="dateCreated datePublished" datetime="2022-06-05T18:12:09+08:00">2022-06-05</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-06-16 00:06:17" itemprop="dateModified" datetime="2022-06-16T00:06:17+08:00">2022-06-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                </span>
+            </span>
 
           
-            <span id="/2022/06/05/happy/" class="post-meta-item leancloud_visitors" data-flag-title="happy" title="阅读次数">
+            <span id="/2022/06/05/happy/" class="post-meta-item leancloud_visitors" data-flag-title="Redis笔记" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -244,6 +270,7 @@
   </span>
   
   
+            <div class="post-description">Redis。</div>
 
         </div>
       </header>
@@ -254,7 +281,402 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        
+        <h1 id="Redis学习"><a href="#Redis学习" class="headerlink" title="Redis学习"></a>Redis学习</h1><h1 id="NoSQL概述"><a href="#NoSQL概述" class="headerlink" title="NoSQL概述"></a>NoSQL概述</h1><h2 id="为什么要用NoSQL"><a href="#为什么要用NoSQL" class="headerlink" title="为什么要用NoSQL?"></a>为什么要用NoSQL?</h2><p><strong>（1）单机MySQL时代</strong></p>
+<p>APP&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;DAL&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;MySQL</p>
+<p>互联网发展早期，一个网站的访问量一般不会太大，单个数据库完全足够。</p>
+<p>但是随着互联网发展。这种情况下，存在一些问题：</p>
+<ul>
+<li>数据量太大，单个机器无法存放足够数据。</li>
+<li>数据的索引(B+Tree)，单机中的内存无法存放数据中的索引。</li>
+<li>访问量太大，单个服务承受不了</li>
+</ul>
+<p><strong>（2）Memcache(缓存) + MySQL + 垂直拆分(读写分离)</strong></p>
+<p>网站80%的情况都是在读数据，每次查询数据库都需要浪费时间，所以希望减轻读取数据的时间，使用缓存提高查询数据的效率。</p>
+<p>发展过程：优化数据结构和索引—》文件缓存（需要IO，也费时）—》Memcache</p>
+<img src="C:\Users\89635\AppData\Roaming\Typora\typora-user-images\image-20220605195710278.png" alt="image-20220605195710278" style="zoom:50%;" />
+
+<p><strong>（3）分库分表 +  水平拆分 + MySQL集群</strong></p>
+<p>MyISAM：表锁，十分影响 效率</p>
+<p>InnoDB：行锁</p>
+<p>使用分库分表解决写的压力：</p>
+<p>​	  例如：将相同业务的数据表划分到一个数据库中，不同的业务使用不同的数据库。</p>
+<p>MySQL集群</p>
+<img src="C:\Users\89635\AppData\Roaming\Typora\typora-user-images\image-20220605200658984.png" alt="image-20220605200658984" style="zoom:80%;" />
+
+<p><strong>（4）当前情况</strong></p>
+<p>数据变化很快；定位，也是一种数据，音乐，热榜</p>
+<p>MySQL等关系型数据库就不够用了，数据量很大，变化很快！</p>
+<p>假如说使用mysql存储一些比较的文件，博客，图片，数据表很大，效率很低。</p>
+<p><strong>当前互联网公司情况：</strong></p>
+<p><img src="C:\Users\89635\AppData\Roaming\Typora\typora-user-images\image-20220605234246545.png" alt="image-20220605234246545"></p>
+<p><strong>（5）为什么使用NoSQL！</strong></p>
+<p>用户的个人信息、社交网络、地理位置。用自己产生的数据，用户日志等爆发式增长的数据。</p>
+<p>此时，需要使用NoSQL数据库，可以很好的处理以上情况。</p>
+<h2 id="什么是NoSQL？"><a href="#什么是NoSQL？" class="headerlink" title="什么是NoSQL？"></a>什么是NoSQL？</h2><p>NoSQL &#x3D;&#x3D; Not Only SQL（不仅仅是SQL）</p>
+<p>泛指费关系型数据库。尤其是超大规模的高并发数据的社区。</p>
+<p>很多的数据类型不需要一个固定的格式：个人信息、社交网络、地理位置。不需要多余的操作，可以横向扩展的。</p>
+<p>Map&lt;String,Object&gt; 使用键值对控制</p>
+<p><strong>Nosql特点</strong><br>1、方便扩展（数据之间没有关系，很好扩展）</p>
+<p>2、大数据量，高性能（Redis，读取11w，写8w&#x2F;s，Nosql的缓存，是一种细粒度的缓存，性能比较高）</p>
+<p>3、数据类型多样性（不需要事先设计数据库！随取随用）</p>
+<p>4、RDBMS和Nosql区别：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">RDBMS:</span><br><span class="line"> －　结构化组织</span><br><span class="line"> －　SQL</span><br><span class="line"> －　数据和关系都存储在单独的表中</span><br><span class="line"> －　数据一致性</span><br><span class="line"> －　事务</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">NoSql</span><br><span class="line"><span class="bullet"> -</span> 不仅仅是数据</span><br><span class="line"><span class="bullet"> -</span> 没有固定的查询语言</span><br><span class="line"><span class="bullet"> -</span> 键值对存储，列存储，文档存储，图形数据库</span><br><span class="line"><span class="bullet"> -</span> 最终一致性</span><br><span class="line"><span class="bullet"> -</span> CAP定理 和 BASE理论 （异地多活）</span><br><span class="line"><span class="bullet"> -</span> 高性能、高可用、高可扩展	</span><br></pre></td></tr></table></figure>
+
+
+
+<p>公司的实践中 NoSQL + RDBMS 一起使用。</p>
+<h2 id="NoSQL的四大分类"><a href="#NoSQL的四大分类" class="headerlink" title="NoSQL的四大分类"></a>NoSQL的四大分类</h2><p><strong>KV键值对：</strong></p>
+<ul>
+<li>新浪：redis</li>
+<li>美团：redis + tair</li>
+<li>阿里、百度：Redis + memcache</li>
+</ul>
+<p><strong>文档型数据库：（BSON格式）</strong></p>
+<ul>
+<li>MongoDB（需要掌握）<ul>
+<li>MongoDB是基于分布式文件存储的数据库，C++编写</li>
+<li>主要用来处理大量的文档</li>
+<li>MongoDB是一种介于关系型数据库和非关系型数据库中间的产品，MongoDB是非关系型数据库中的功能最丰富的，最像关系型数据库的。</li>
+</ul>
+</li>
+<li>ConthDB</li>
+</ul>
+<p><strong>列存储数据库：</strong></p>
+<ul>
+<li>HBASE</li>
+<li>分布式文件系统</li>
+</ul>
+<p><strong>图形关系数据库：</strong></p>
+<ul>
+<li>不是存储图的，存储的是图关系的，比如：社交网络、广告推荐</li>
+<li>Neo4j，Infogrid</li>
+</ul>
+<h1 id="Redis入门"><a href="#Redis入门" class="headerlink" title="Redis入门"></a>Redis入门</h1><h2 id="概述："><a href="#概述：" class="headerlink" title="概述："></a>概述：</h2><h3 id="Redis是什么？"><a href="#Redis是什么？" class="headerlink" title="Redis是什么？"></a>Redis是什么？</h3><p>Redis（Remote Dictionary Server），远程字典服务！</p>
+<p>是一种开源的ANSI C语言编写的、支持网络的、可基于内存，亦可持久化的日志型，Key-Value数据库，并提供多种语言API。</p>
+<p>Redis会周期性的把更新的数据写入磁盘或者把修改操作写入追加的记录文件，并在此基础上实现主从同步。</p>
+<p>免费开源！</p>
+<p>当下最热门的数据库之一。</p>
+<h3 id="Redis能干什么？"><a href="#Redis能干什么？" class="headerlink" title="Redis能干什么？"></a>Redis能干什么？</h3><p>1、内存存储、持久化，内存中是断电即失的（RDB，AOF）。</p>
+<p>2、效率高，可以用于高速缓存。</p>
+<p>3、发布订阅系统</p>
+<p>4、地图信息</p>
+<p>5、计时器、计数器（浏览量！）</p>
+<h3 id="特性："><a href="#特性：" class="headerlink" title="特性："></a>特性：</h3><p>1、多样的数据类型</p>
+<p>2、持久化</p>
+<p>3、集群</p>
+<p>4、事务</p>
+<h3 id="学习中需要用的东西"><a href="#学习中需要用的东西" class="headerlink" title="学习中需要用的东西"></a>学习中需要用的东西</h3><ul>
+<li>官网：<a target="_blank" rel="noopener" href="https://redis.io/">https://redis.io/</a></li>
+<li>中文网：<a target="_blank" rel="noopener" href="https://www.redis.net.cn/">https://www.redis.net.cn/</a></li>
+<li>GitHub地址：<a target="_blank" rel="noopener" href="https://github.com/redis/redis">https://github.com/redis/redis</a></li>
+<li>下载地址：从官网下载既可。</li>
+<li>Windows在Github上下载。（停更很久了，Redis推荐在Linux上进行使用学习）</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/microsoftarchive/redis/releases">https://github.com/microsoftarchive/redis/releases</a></li>
+</ul>
+<h2 id="Windows下安装Redis"><a href="#Windows下安装Redis" class="headerlink" title="Windows下安装Redis"></a>Windows下安装Redis</h2><p>1、WIndows版本Redis下载地址：<a target="_blank" rel="noopener" href="https://github.com/microsoftarchive/redis/releases">https://github.com/microsoftarchive/redis/releases</a></p>
+<p>2、直接解压压缩包既可：</p>
+<img src="C:\Users\89635\AppData\Roaming\Typora\typora-user-images\image-20220612223712641.png" alt="image-20220612223712641" style="zoom:50%;" />
+
+<p>3、双击redis-server.exe既可运行redis服务：运行结果如下：</p>
+<p>4、Redis默认端口号：6379</p>
+<p><img src="C:\Users\89635\AppData\Roaming\Typora\typora-user-images\image-20220612223734789.png" alt="image-20220612223734789"></p>
+<p>5、使用redis客户端连接redis</p>
+<p>使用ping命令测试是否连接成功。</p>
+<p>使用set命令，get命令测试redis的使用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ping</span><br><span class="line">set name lihonghao</span><br><span class="line">get name</span><br></pre></td></tr></table></figure>
+
+
+
+<img src="C:\Users\89635\AppData\Roaming\Typora\typora-user-images\image-20220612224106993.png" alt="image-20220612224106993" style="zoom:50%;" />
+
+
+
+<h2 id="Linux环境先安装Redis"><a href="#Linux环境先安装Redis" class="headerlink" title="Linux环境先安装Redis"></a>Linux环境先安装Redis</h2><p>1、下载安装包<a target="_blank" rel="noopener" href="https://download.redis.io/releases/redis-5.0.14.tar.gz">https://download.redis.io/releases/redis-5.0.14.tar.gz</a></p>
+<p>2、解压压缩包：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf redis-5.0.14.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>解压之后，目录中的文件和windows中是没有区别的。</p>
+<p><img src="C:\Users\89635\AppData\Roaming\Typora\typora-user-images\image-20220613233641936.png" alt="image-20220613233641936"></p>
+<p>3、注意文件：redis.conf  是redis的配置文件。</p>
+<p>4、基本的环境安装</p>
+<p>redis是通过C语言编写的</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Ubuntu系统：</span><br><span class="line">apt install build-essential</span><br><span class="line">centos系统：</span><br><span class="line">yum -y install gcc gcc-c++ autoconf make</span><br><span class="line">安装之后，使用 gcc -v 查看版本信息:</span><br><span class="line">gcc -v</span><br></pre></td></tr></table></figure>
+
+<p>5、进入redis解压目录，在redis解压目录下执行make命令。</p>
+<p>6、在当前目录下执行make install。</p>
+<p>​	（1、如果报错，上网查看redis版本和gcc版本匹配问题 </p>
+<p>​		2、如果出现权限不允许的情况使用 sudo make install）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">make </span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+
+<p>7、redis默认的安装目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/local/bin</span><br></pre></td></tr></table></figure>
+
+<p>8、配置redis配置文件，设置后台运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1、先做一个表备份</span><br><span class="line"><span class="built_in">cp</span> redis.conf redis.conf.bak</span><br><span class="line">2、修改配置文件</span><br><span class="line">vim redis.conf</span><br><span class="line">3、找到daemonize修改为<span class="built_in">yes</span></span><br></pre></td></tr></table></figure>
+
+<p>9、通过制定的配置文件启动redis</p>
+<p>说明：&#x2F;usr&#x2F;local&#x2F;bin在环境变量里面，因此在任何地方都可以运行redis-server </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-server redis.conf</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\89635\AppData\Roaming\Typora\typora-user-images\image-20220614000103034.png" alt="image-20220614000103034"></p>
+<p>10、启动客户端连接redis服务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -h 127.0.0.1 -p 6379</span><br></pre></td></tr></table></figure>
+
+<img src="C:\Users\89635\AppData\Roaming\Typora\typora-user-images\image-20220614000247057.png" alt="image-20220614000247057" style="zoom:50%;" />
+
+<p>12、查看redis进程启动情况：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -aux | grep redis</span><br></pre></td></tr></table></figure>
+
+<p>13、关闭redis服务：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shutdown</span><br></pre></td></tr></table></figure>
+
+<p>14、推出客户端</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="性能测试"><a href="#性能测试" class="headerlink" title="性能测试"></a>性能测试</h2><p><strong>redis-benchmark</strong>是一个压力性能测试工具</p>
+<p>官方自带的性能测试工具。</p>
+<p>benchmark使用教程：<a target="_blank" rel="noopener" href="https://www.runoob.com/redis/redis-benchmarks.html">https://www.runoob.com/redis/redis-benchmarks.html</a></p>
+<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><ul>
+<li><p>redis默认有16个数据库</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select 3 <span class="comment">#切换数据库，不同的数据库存储不同的信息</span></span><br><span class="line">DBSIZE   <span class="comment">#查看数据库大小</span></span><br><span class="line">keys *   <span class="comment">#查看当前数据库中的所有的key</span></span><br><span class="line">flushall <span class="comment">#清空所有数据库</span></span><br><span class="line">flushdb  <span class="comment">#清空当前数据库</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>为什么Redis数据库端口号时 6379 ？</strong></p>
+<p>9宫格中明星的名字</p>
+<h2 id="Redis是单线程的"><a href="#Redis是单线程的" class="headerlink" title="Redis是单线程的"></a>Redis是单线程的</h2><p>Redis是很快的，官方表示，Redis是基于内存操作的，CPU不是Redis的性能瓶颈。</p>
+<p>他的性能是根据机器的内存和网络带宽影响。</p>
+<h1 id="Redis配置"><a href="#Redis配置" class="headerlink" title="Redis配置"></a>Redis配置</h1><p>Redis配置文件位于Redis安装目录下，文件名为<strong>Redis.conf</strong></p>
+<p>可以通过CONFIG命令进行配置。</p>
+<h2 id="查看配置信息"><a href="#查看配置信息" class="headerlink" title="查看配置信息"></a>查看配置信息</h2><p><strong>配置命令给格式如下：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">config get config_setting_name</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><strong>演示：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看日志级别</span></span><br><span class="line">localhost:6379&gt; config get loglevel</span><br><span class="line">1) <span class="string">&quot;loglevel&quot;</span></span><br><span class="line">2) <span class="string">&quot;notice&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#查看所有配置信息</span></span><br><span class="line">localhost:6379&gt; config get *</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="设置配置信息"><a href="#设置配置信息" class="headerlink" title="设置配置信息"></a>设置配置信息</h2><p>可以通过修改文件<strong>redis.conf</strong>或者命令设置配置</p>
+<p><strong>语法：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">config <span class="built_in">set</span> config_setting_name new_value</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>演示：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#在Linux环境下，设置Redis服务为后台进程。</span></span><br><span class="line">localhost:6379&gt; config <span class="built_in">set</span> loglevel <span class="string">&quot;notice&quot;</span></span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="参数说明："><a href="#参数说明：" class="headerlink" title="参数说明："></a>参数说明：</h2><p>在配置文件中参数说明如下：</p>
+<table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">配置项</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left"><code>daemonize no</code></td>
+<td align="left">Redis 默认不是以守护进程的方式运行，可以通过该配置项修改，使用 yes 启用守护进程（Windows 不支持守护线程的配置为 no ）</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left"><code>pidfile /var/run/redis.pid</code></td>
+<td align="left">当 Redis 以守护进程方式运行时，Redis 默认会把 pid 写入 &#x2F;var&#x2F;run&#x2F;redis.pid 文件，可以通过 pidfile 指定</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left"><code>port 6379</code></td>
+<td align="left">指定 Redis 监听端口，默认端口为 6379</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left"><code>bind 127.0.0.1</code></td>
+<td align="left">绑定的主机地址</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left"><code>timeout 300</code></td>
+<td align="left">当客户端闲置多长秒后关闭连接，如果指定为 0 ，表示关闭该功能</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left"><code>loglevel notice</code></td>
+<td align="left">指定日志记录级别，Redis 总共支持四个级别：debug、verbose、notice、warning，默认为 notice</td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="left"><code>logfile stdout</code></td>
+<td align="left">日志记录方式，默认为标准输出，如果配置 Redis 为守护进程方式运行，而这里又配置为日志记录方式为标准输出，则日志将会发送给 &#x2F;dev&#x2F;null</td>
+</tr>
+<tr>
+<td align="left">8</td>
+<td align="left"><code>databases 16</code></td>
+<td align="left">设置数据库的数量，默认数据库为0，可以使用SELECT 命令在连接上指定数据库id</td>
+</tr>
+<tr>
+<td align="left">9</td>
+<td align="left">save seconds changes   Redis默认配置提供了三个</td>
+<td align="left">指定在多长时间内，有多少次更新操作，就将数据同步到数据文件，可以多个条件配合</td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left"><code>rdbcompression yes</code></td>
+<td align="left">指定存储至本地数据库时是否压缩数据，默认为 yes，Redis 采用 LZF 压缩，如果为了节省 CPU 时间，可以关闭该选项，但会导致数据库文件变的巨大</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left"><code>dbfilename dump.rdb</code></td>
+<td align="left">指定本地数据库文件名，默认值为 dump.rdb</td>
+</tr>
+<tr>
+<td align="left">12</td>
+<td align="left"><code>dir ./</code></td>
+<td align="left">指定本地数据库存放目录</td>
+</tr>
+<tr>
+<td align="left">13</td>
+<td align="left"><code>slaveof &lt;masterip&gt; &lt;masterport&gt;</code></td>
+<td align="left">设置当本机为 slave 服务时，设置 master 服务的 IP 地址及端口，在 Redis 启动时，它会自动从 master 进行数据同步</td>
+</tr>
+<tr>
+<td align="left">14</td>
+<td align="left"><code>masterauth &lt;master-password&gt;</code></td>
+<td align="left">当 master 服务设置了密码保护时，slave 服务连接 master 的密码</td>
+</tr>
+<tr>
+<td align="left">15</td>
+<td align="left"><code>requirepass foobared</code></td>
+<td align="left">设置 Redis 连接密码，如果配置了连接密码，客户端在连接 Redis 时需要通过 AUTH <password> 命令提供密码，默认关闭</td>
+</tr>
+<tr>
+<td align="left">16</td>
+<td align="left"><code> maxclients 128</code></td>
+<td align="left">设置同一时间最大客户端连接数，默认无限制，Redis 可以同时打开的客户端连接数为 Redis 进程可以打开的最大文件描述符数，如果设置 maxclients 0，表示不作限制。当客户端连接数到达限制时，Redis 会关闭新的连接并向客户端返回 max number of clients reached 错误信息</td>
+</tr>
+<tr>
+<td align="left">17</td>
+<td align="left"><code>maxmemory &lt;bytes&gt;</code></td>
+<td align="left">指定 Redis 最大内存限制，Redis 在启动时会把数据加载到内存中，达到最大内存后，Redis 会先尝试清除已到期或即将到期的 Key，当此方法处理 后，仍然到达最大内存设置，将无法再进行写入操作，但仍然可以进行读取操作。Redis 新的 vm 机制，会把 Key 存放内存，Value 会存放在 swap 区</td>
+</tr>
+<tr>
+<td align="left">18</td>
+<td align="left"><code>appendonly no</code></td>
+<td align="left">指定是否在每次更新操作后进行日志记录，Redis 在默认情况下是异步的把数据写入磁盘，如果不开启，可能会在断电时导致一段时间内的数据丢失。因为 redis 本身同步数据文件是按上面 save 条件来同步的，所以有的数据会在一段时间内只存在于内存中。默认为 no</td>
+</tr>
+<tr>
+<td align="left">19</td>
+<td align="left"><code>appendfilename appendonly.aof</code></td>
+<td align="left">指定更新日志文件名，默认为 appendonly.aof</td>
+</tr>
+<tr>
+<td align="left">20</td>
+<td align="left"><code>appendfsync everysec</code></td>
+<td align="left">指定更新日志条件，共有 3 个可选值：<strong>no</strong>：表示等操作系统进行数据缓存同步到磁盘（快）<strong>always</strong>：表示每次更新操作后手动调用 fsync() 将数据写到磁盘（慢，安全）<strong>everysec</strong>：表示每秒同步一次（折中，默认值）</td>
+</tr>
+<tr>
+<td align="left">21</td>
+<td align="left"><code>vm-enabled no</code></td>
+<td align="left">指定是否启用虚拟内存机制，默认值为 no，简单的介绍一下，VM 机制将数据分页存放，由 Redis 将访问量较少的页即冷数据 swap 到磁盘上，访问多的页面由磁盘自动换出到内存中（在后面的文章我会仔细分析 Redis 的 VM 机制）</td>
+</tr>
+<tr>
+<td align="left">22</td>
+<td align="left"><code>vm-swap-file /tmp/redis.swap</code></td>
+<td align="left">虚拟内存文件路径，默认值为 &#x2F;tmp&#x2F;redis.swap，不可多个 Redis 实例共享</td>
+</tr>
+<tr>
+<td align="left">23</td>
+<td align="left"><code>vm-max-memory 0</code></td>
+<td align="left">将所有大于 vm-max-memory 的数据存入虚拟内存，无论 vm-max-memory 设置多小，所有索引数据都是内存存储的(Redis 的索引数据 就是 keys)，也就是说，当 vm-max-memory 设置为 0 的时候，其实是所有 value 都存在于磁盘。默认值为 0</td>
+</tr>
+<tr>
+<td align="left">24</td>
+<td align="left"><code>vm-page-size 32</code></td>
+<td align="left">Redis swap 文件分成了很多的 page，一个对象可以保存在多个 page 上面，但一个 page 上不能被多个对象共享，vm-page-size 是要根据存储的 数据大小来设定的，作者建议如果存储很多小对象，page 大小最好设置为 32 或者 64bytes；如果存储很大大对象，则可以使用更大的 page，如果不确定，就使用默认值</td>
+</tr>
+<tr>
+<td align="left">25</td>
+<td align="left"><code>vm-pages 134217728</code></td>
+<td align="left">设置 swap 文件中的 page 数量，由于页表（一种表示页面空闲或使用的 bitmap）是在放在内存中的，，在磁盘上每 8 个 pages 将消耗 1byte 的内存。</td>
+</tr>
+<tr>
+<td align="left">26</td>
+<td align="left"><code>vm-max-threads 4</code></td>
+<td align="left">设置访问swap文件的线程数,最好不要超过机器的核数,如果设置为0,那么所有对swap文件的操作都是串行的，可能会造成比较长时间的延迟。默认值为4</td>
+</tr>
+<tr>
+<td align="left">27</td>
+<td align="left"><code>glueoutputbuf yes</code></td>
+<td align="left">设置在向客户端应答时，是否把较小的包合并为一个包发送，默认为开启</td>
+</tr>
+<tr>
+<td align="left">28</td>
+<td align="left"><code>hash-max-zipmap-entries 64 hash-max-zipmap-value 512</code></td>
+<td align="left">指定在超过一定的数量或者最大的元素超过某一临界值时，采用一种特殊的哈希算法</td>
+</tr>
+<tr>
+<td align="left">29</td>
+<td align="left"><code>activerehashing yes</code></td>
+<td align="left">指定是否激活重置哈希，默认为开启（后面在介绍 Redis 的哈希算法时具体介绍）</td>
+</tr>
+<tr>
+<td align="left">30</td>
+<td align="left"><code>include /path/to/local.conf</code></td>
+<td align="left">指定包含其它的配置文件，可以在同一主机上多个Redis实例之间使用同一份配置文件，而同时各个实例又拥有自己的特定配置文件</td>
+</tr>
+</tbody></table>
+<h1 id="五大数据类型"><a href="#五大数据类型" class="headerlink" title="五大数据类型"></a>五大数据类型</h1><p>Redis支持五种数据类型：string	字符串</p>
+<p>hash	哈希</p>
+<p>list	列表</p>
+<p>set	集合</p>
+<p>sorted set	有序集合</p>
+<h2 id="Redis-Key"><a href="#Redis-Key" class="headerlink" title="Redis-Key"></a>Redis-Key</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">localhost:6379&gt; FLUSHALL	<span class="comment">#清空数据库</span></span><br><span class="line">OK</span><br><span class="line">localhost:6379&gt; keys *		<span class="comment">#查看当前所有的key</span></span><br><span class="line">(empty list or <span class="built_in">set</span>)</span><br><span class="line">localhost:6379&gt; <span class="built_in">set</span> name lihonghao	<span class="comment">#设置key</span></span><br><span class="line">OK</span><br><span class="line">localhost:6379&gt; keys *		<span class="comment">#查看所有的key</span></span><br><span class="line">1) <span class="string">&quot;name&quot;</span></span><br><span class="line">localhost:6379&gt; <span class="built_in">set</span> age 24</span><br><span class="line">OK</span><br><span class="line">localhost:6379&gt; keys *</span><br><span class="line">1) <span class="string">&quot;age&quot;</span></span><br><span class="line">2) <span class="string">&quot;name&quot;</span></span><br><span class="line">localhost:6379&gt; exists name		<span class="comment">#查看当前数据库是否存在 key，成功返回 1，失败返回 0</span></span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">localhost:6379&gt; exists age</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">localhost:6379&gt; move name 1		<span class="comment">#从当前数据库中移除key， 1 代表当前数据库</span></span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">localhost:6379&gt; keys *</span><br><span class="line">1) <span class="string">&quot;age&quot;</span></span><br><span class="line">localhost:6379&gt; <span class="built_in">set</span> name lihonghao</span><br><span class="line">OK</span><br><span class="line">localhost:6379&gt; keys *</span><br><span class="line">1) <span class="string">&quot;age&quot;</span></span><br><span class="line">2) <span class="string">&quot;name&quot;</span></span><br><span class="line">localhost:6379&gt;</span><br><span class="line">localhost:6379&gt; get name</span><br><span class="line"><span class="string">&quot;lihonghao&quot;</span></span><br><span class="line">localhost:6379&gt; EXPIRE name 10		<span class="comment">#设置key的过期时间</span></span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">localhost:6379&gt; ttl name			<span class="comment">#查询当前key的剩余时间</span></span><br><span class="line">(<span class="built_in">integer</span>) 7</span><br><span class="line">localhost:6379&gt; ttl name</span><br><span class="line">(<span class="built_in">integer</span>) 4</span><br><span class="line">localhost:6379&gt; ttl name</span><br><span class="line">(<span class="built_in">integer</span>) 3</span><br><span class="line">localhost:6379&gt; ttl name</span><br><span class="line">(<span class="built_in">integer</span>) 2</span><br><span class="line">localhost:6379&gt; ttl name</span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">localhost:6379&gt; ttl name			<span class="comment">#当显示 -2 时，代表当前key已经失效</span></span><br><span class="line">(<span class="built_in">integer</span>) -2</span><br><span class="line">localhost:6379&gt; get name</span><br><span class="line">(nil)</span><br><span class="line">localhost:6379&gt; keys *</span><br><span class="line">1) <span class="string">&quot;age&quot;</span></span><br><span class="line">localhost:6379&gt;</span><br><span class="line">localhost:6379&gt; <span class="built_in">type</span> age			<span class="comment">#查看当前key的数据类型</span></span><br><span class="line">string</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="String（字符串）"><a href="#String（字符串）" class="headerlink" title="String（字符串）"></a>String（字符串）</h2><ul>
+<li><p>String是redis的基本数据类型，可以理解和Memcache中的一样，一个key对应一个value</p>
+</li>
+<li><p>string类型是二进制安全的，意思是redis可以包含任何数据，可以是jpg图片，也可以是被序列化的对象</p>
+</li>
+<li><p>最大存储512M</p>
+</li>
+</ul>
+<p><strong>演示：</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#####################################################################</span></span><br><span class="line"><span class="comment">#追加、长度、设置、获取</span></span><br><span class="line">localhost:6379&gt; FLUSHALL		<span class="comment">#清空数据库</span></span><br><span class="line">OK</span><br><span class="line">localhost:6379&gt; <span class="built_in">set</span> key1 v1		<span class="comment">#设置key1</span></span><br><span class="line">OK</span><br><span class="line">localhost:6379&gt; get key1		<span class="comment">#获取key1</span></span><br><span class="line"><span class="string">&quot;v1&quot;</span></span><br><span class="line">localhost:6379&gt; exists key1		<span class="comment">#判断是否存在</span></span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">localhost:6379&gt; append key1 <span class="string">&quot;hello&quot;</span>		<span class="comment">#追加字符串，如果当前key不存在，则创建的新的key</span></span><br><span class="line">(<span class="built_in">integer</span>) 7</span><br><span class="line">localhost:6379&gt; get key1</span><br><span class="line"><span class="string">&quot;v1hello&quot;</span></span><br><span class="line">localhost:6379&gt; strlen key1		<span class="comment">#获取长度</span></span><br><span class="line">(<span class="built_in">integer</span>) 7</span><br><span class="line">localhost:6379&gt; append key1 world</span><br><span class="line">(<span class="built_in">integer</span>) 12</span><br><span class="line">localhost:6379&gt; get key1</span><br><span class="line"><span class="string">&quot;v1helloworld&quot;</span></span><br><span class="line"><span class="comment">#####################################################################</span></span><br><span class="line"><span class="comment">#数学运算、+1、+n 操作</span></span><br><span class="line">localhost:6379&gt; <span class="built_in">set</span> views 0		<span class="comment">#设置浏览量 views</span></span><br><span class="line">OK</span><br><span class="line">localhost:6379&gt; get views		<span class="comment">#获取值</span></span><br><span class="line"><span class="string">&quot;0&quot;</span></span><br><span class="line">localhost:6379&gt; incr views		<span class="comment"># +1 操作</span></span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">localhost:6379&gt; get views</span><br><span class="line"><span class="string">&quot;1&quot;</span></span><br><span class="line">localhost:6379&gt; decr views		<span class="comment"># -1 操作</span></span><br><span class="line">(<span class="built_in">integer</span>) 0</span><br><span class="line">localhost:6379&gt; get views</span><br><span class="line"><span class="string">&quot;0&quot;</span></span><br><span class="line">localhost:6379&gt; incrby views 10		<span class="comment">#设置增加步长</span></span><br><span class="line">(<span class="built_in">integer</span>) 10</span><br><span class="line">localhost:6379&gt; get views</span><br><span class="line"><span class="string">&quot;10&quot;</span></span><br><span class="line">localhost:6379&gt; decrby views 10		<span class="comment">#减去指定数值</span></span><br><span class="line">(<span class="built_in">integer</span>) 0</span><br><span class="line">localhost:6379&gt; get views</span><br><span class="line"><span class="string">&quot;0&quot;</span></span><br><span class="line"><span class="comment">#####################################################################</span></span><br><span class="line"><span class="comment">#字符串范围 (双闭区间)</span></span><br><span class="line">localhost:6379&gt; <span class="built_in">set</span> key1 <span class="string">&quot;hello,lihonghao&quot;</span>		<span class="comment">#设置 key1 的值</span></span><br><span class="line">OK</span><br><span class="line">localhost:6379&gt; get key1						<span class="comment">#获取 key1</span></span><br><span class="line"><span class="string">&quot;hello,lihonghao&quot;</span></span><br><span class="line">localhost:6379&gt; getrange key1 0 4				<span class="comment">#获取指定范围字符串 [0,4]</span></span><br><span class="line"><span class="string">&quot;hello&quot;</span></span><br><span class="line">localhost:6379&gt; getrange key1 0 -1				<span class="comment">#获取所有的字符串</span></span><br><span class="line"><span class="string">&quot;hello,lihonghao&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#	！！替换</span></span><br><span class="line">localhost:6379&gt; <span class="built_in">set</span> name lihonghao		<span class="comment">#设置name</span></span><br><span class="line">OK</span><br><span class="line">localhost:6379&gt; get name				<span class="comment">#获取name</span></span><br><span class="line"><span class="string">&quot;lihonghao&quot;</span></span><br><span class="line">localhost:6379&gt; setrange name 0 aa		<span class="comment">#替换指定偏移字符串为指定字符串</span></span><br><span class="line">(<span class="built_in">integer</span>) 9</span><br><span class="line">localhost:6379&gt; get name				<span class="comment">#获取 name</span></span><br><span class="line"><span class="string">&quot;aahonghao&quot;</span></span><br><span class="line"><span class="comment">#####################################################################</span></span><br><span class="line"><span class="comment"># setex (set with expire) 	设置过期时间</span></span><br><span class="line"><span class="comment"># setnx (set if not exist)  不存在设置</span></span><br><span class="line">localhost:6379&gt; setex key2 30 lihonghao		<span class="comment">#设置 key 并设置过期时间</span></span><br><span class="line">OK</span><br><span class="line">localhost:6379&gt; ttl key2					<span class="comment">#查询剩余时间</span></span><br><span class="line">(<span class="built_in">integer</span>) 26</span><br><span class="line">localhost:6379&gt; get key2					<span class="comment">#获取 key</span></span><br><span class="line"><span class="string">&quot;lihonghao&quot;</span></span><br><span class="line">localhost:6379&gt; setnx key3 lihonghao		<span class="comment">#若果不存在，设置。存在 不设置。（避免覆盖）</span></span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">localhost:6379&gt; setnx key2 zhangsan			<span class="comment">#此时，key2失效，可以设置</span></span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">localhost:6379&gt; setnx key3 zhangsan			<span class="comment">#key3存在，不能设置。返回 0</span></span><br><span class="line">(<span class="built_in">integer</span>) 0</span><br><span class="line"><span class="comment">#####################################################################</span></span><br><span class="line"><span class="comment"># mset	</span></span><br><span class="line"><span class="comment"># mget</span></span><br><span class="line">localhost:6379&gt; flushall			<span class="comment">#清空数据库</span></span><br><span class="line">OK</span><br><span class="line">localhost:6379&gt; keys *				<span class="comment">#查看所有的 key</span></span><br><span class="line">(empty list or <span class="built_in">set</span>)</span><br><span class="line">localhost:6379&gt; mset k1 v1 k2 v2 k3 v3	<span class="comment">#批量设置 key</span></span><br><span class="line">OK</span><br><span class="line">localhost:6379&gt; keys *</span><br><span class="line">1) <span class="string">&quot;k3&quot;</span></span><br><span class="line">2) <span class="string">&quot;k2&quot;</span></span><br><span class="line">3) <span class="string">&quot;k1&quot;</span></span><br><span class="line">localhost:6379&gt; mget k1 k2 k3			<span class="comment">#批量获取 key</span></span><br><span class="line">1) <span class="string">&quot;v1&quot;</span></span><br><span class="line">2) <span class="string">&quot;v2&quot;</span></span><br><span class="line">3) <span class="string">&quot;v3&quot;</span></span><br><span class="line">localhost:6379&gt; msetnx k1 v1 k4 v4		<span class="comment">#批量若果不存在，设置。但是因为k1，存在。因此k4设置失败，批量操作是一个原子性操作。</span></span><br><span class="line">(<span class="built_in">integer</span>) 0</span><br><span class="line">localhost:6379&gt; msetnx k4 v4 k5 v5		<span class="comment">#原子性操作，批量设置 key。</span></span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">localhost:6379&gt; keys *					<span class="comment">#查看所有key</span></span><br><span class="line">1) <span class="string">&quot;k3&quot;</span></span><br><span class="line">2) <span class="string">&quot;k5&quot;</span></span><br><span class="line">3) <span class="string">&quot;k1&quot;</span></span><br><span class="line">4) <span class="string">&quot;k2&quot;</span></span><br><span class="line">5) <span class="string">&quot;k4&quot;</span></span><br><span class="line"><span class="comment">#####################################################################</span></span><br><span class="line"><span class="comment"># 存储对象的 （存储JSON字符串）</span></span><br><span class="line">localhost:6379&gt; <span class="built_in">set</span> user:1 &#123;name:zhangsan,age:3&#125;	<span class="comment">#存储JSON字符串</span></span><br><span class="line">OK</span><br><span class="line">localhost:6379&gt; get user:1							<span class="comment">#获取JSON字符串</span></span><br><span class="line"><span class="string">&quot;&#123;name:zhangsan,age:3&#125;&quot;</span></span><br><span class="line">127.0.0.1:6379&gt; <span class="built_in">set</span> user:1:name zhangsan			<span class="comment">#设置对象的属性</span></span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; <span class="built_in">set</span> user:1:age 24</span><br><span class="line">OK</span><br><span class="line">127.0.0.1:6379&gt; get user:1:name</span><br><span class="line"><span class="string">&quot;zhangsan&quot;</span></span><br><span class="line">127.0.0.1:6379&gt; get user:1:age</span><br><span class="line"><span class="string">&quot;24&quot;</span></span><br><span class="line"><span class="comment">#####################################################################</span></span><br><span class="line"><span class="comment"># getset 先获取，再设置</span></span><br><span class="line">127.0.0.1:6379&gt; getset name lihonghao	<span class="comment">#如果不存在，先获取 null，再设置值</span></span><br><span class="line">(nil)</span><br><span class="line">127.0.0.1:6379&gt; get name</span><br><span class="line"><span class="string">&quot;lihonghao&quot;</span></span><br><span class="line">127.0.0.1:6379&gt; getset name zhangsan	<span class="comment">#存在，获取当前的值，再设置</span></span><br><span class="line"><span class="string">&quot;lihonghao&quot;</span></span><br><span class="line">127.0.0.1:6379&gt; get name</span><br><span class="line"><span class="string">&quot;zhangsan&quot;</span></span><br><span class="line"><span class="comment">#####################################################################</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>string类型的使用场景：</strong></p>
+<ul>
+<li>计数器</li>
+<li>统计数量</li>
+<li>粉丝数  </li>
+<li>对象缓存存储</li>
+</ul>
+<h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><ul>
+<li><p>基本的数据类型，列表。</p>
+</li>
+<li><p>在Redis中，可以使用 List 使用成 栈、队列。</p>
+</li>
+<li><p>所有的list 命令，都是 l 开头</p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">####################################################################</span></span><br><span class="line"><span class="comment"># LPUSH</span></span><br><span class="line"><span class="comment"># RPUSH</span></span><br><span class="line">127.0.0.1:6379&gt; lpush list1 one			<span class="comment"># 向链表中头部插入数据</span></span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">127.0.0.1:6379&gt; LPUSH list1 two			<span class="comment"># 项链表list1头部添加数据</span></span><br><span class="line">(<span class="built_in">integer</span>) 2</span><br><span class="line">127.0.0.1:6379&gt; LPUSH list1 threee</span><br><span class="line">(<span class="built_in">integer</span>) 3</span><br><span class="line">127.0.0.1:6379&gt; LRANGE list1 0 -1		<span class="comment">#查看所有数据</span></span><br><span class="line">1) <span class="string">&quot;threee&quot;</span></span><br><span class="line">2) <span class="string">&quot;two&quot;</span></span><br><span class="line">3) <span class="string">&quot;one&quot;</span></span><br><span class="line">127.0.0.1:6379&gt; keys *			</span><br><span class="line">1) <span class="string">&quot;list1&quot;</span></span><br><span class="line">127.0.0.1:6379&gt; Lrange list1 0 1		<span class="comment">#	查看指定范围数据</span></span><br><span class="line">1) <span class="string">&quot;threee&quot;</span></span><br><span class="line">2) <span class="string">&quot;two&quot;</span></span><br><span class="line">127.0.0.1:6379&gt;  rpush list1 right		<span class="comment">#向链表右侧添加数据</span></span><br><span class="line">(<span class="built_in">integer</span>) 4</span><br><span class="line">127.0.0.1:6379&gt; lrange list1 0 -1		<span class="comment">#查看所有数据</span></span><br><span class="line">1) <span class="string">&quot;threee&quot;</span></span><br><span class="line">2) <span class="string">&quot;two&quot;</span></span><br><span class="line">3) <span class="string">&quot;one&quot;</span></span><br><span class="line">4) <span class="string">&quot;right&quot;</span></span><br><span class="line"><span class="comment">####################################################################</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">####################################################################</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">####################################################################</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+<h2 id="Hash（哈希）"><a href="#Hash（哈希）" class="headerlink" title="Hash（哈希）"></a>Hash（哈希）</h2>
     </div>
 
     
@@ -277,6 +699,9 @@
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/redis/" rel="tag"># redis</a>
+          </div>
 
         
 
@@ -284,10 +709,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/06/05/hello-world/" rel="prev" title="Hello World">
-      <i class="fa fa-chevron-left"></i> Hello World
+    <a href="/2022/05/05/MyBatis%E7%AC%94%E8%AE%B0/" rel="prev" title="Mybatis笔记">
+      <i class="fa fa-chevron-left"></i> Mybatis笔记
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2022/06/09/%E5%AD%97%E8%8A%82%E4%B8%80%E9%9D%A21/" rel="next" title="字节一面-1">
+      字节一面-1 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -347,6 +775,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis%E5%AD%A6%E4%B9%A0"><span class="nav-number">1.</span> <span class="nav-text">Redis学习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#NoSQL%E6%A6%82%E8%BF%B0"><span class="nav-number">2.</span> <span class="nav-text">NoSQL概述</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E7%94%A8NoSQL"><span class="nav-number">2.1.</span> <span class="nav-text">为什么要用NoSQL?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFNoSQL%EF%BC%9F"><span class="nav-number">2.2.</span> <span class="nav-text">什么是NoSQL？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NoSQL%E7%9A%84%E5%9B%9B%E5%A4%A7%E5%88%86%E7%B1%BB"><span class="nav-number">2.3.</span> <span class="nav-text">NoSQL的四大分类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis%E5%85%A5%E9%97%A8"><span class="nav-number">3.</span> <span class="nav-text">Redis入门</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0%EF%BC%9A"><span class="nav-number">3.1.</span> <span class="nav-text">概述：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">3.1.1.</span> <span class="nav-text">Redis是什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Redis%E8%83%BD%E5%B9%B2%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="nav-number">3.1.2.</span> <span class="nav-text">Redis能干什么？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%B9%E6%80%A7%EF%BC%9A"><span class="nav-number">3.1.3.</span> <span class="nav-text">特性：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E4%B8%AD%E9%9C%80%E8%A6%81%E7%94%A8%E7%9A%84%E4%B8%9C%E8%A5%BF"><span class="nav-number">3.1.4.</span> <span class="nav-text">学习中需要用的东西</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows%E4%B8%8B%E5%AE%89%E8%A3%85Redis"><span class="nav-number">3.2.</span> <span class="nav-text">Windows下安装Redis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux%E7%8E%AF%E5%A2%83%E5%85%88%E5%AE%89%E8%A3%85Redis"><span class="nav-number">3.3.</span> <span class="nav-text">Linux环境先安装Redis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95"><span class="nav-number">3.4.</span> <span class="nav-text">性能测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="nav-number">3.5.</span> <span class="nav-text">基础知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis%E6%98%AF%E5%8D%95%E7%BA%BF%E7%A8%8B%E7%9A%84"><span class="nav-number">3.6.</span> <span class="nav-text">Redis是单线程的</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis%E9%85%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">Redis配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF"><span class="nav-number">4.1.</span> <span class="nav-text">查看配置信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E9%85%8D%E7%BD%AE%E4%BF%A1%E6%81%AF"><span class="nav-number">4.2.</span> <span class="nav-text">设置配置信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="nav-number">4.3.</span> <span class="nav-text">参数说明：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%94%E5%A4%A7%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">5.</span> <span class="nav-text">五大数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-Key"><span class="nav-number">5.1.</span> <span class="nav-text">Redis-Key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#String%EF%BC%88%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89"><span class="nav-number">5.2.</span> <span class="nav-text">String（字符串）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#List"><span class="nav-number">5.3.</span> <span class="nav-text">List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hash%EF%BC%88%E5%93%88%E5%B8%8C%EF%BC%89"><span class="nav-number">5.4.</span> <span class="nav-text">Hash（哈希）</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -362,9 +791,21 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
@@ -515,7 +956,7 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
   
     <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
   
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
 
 <!-- ҳ����С���� -->

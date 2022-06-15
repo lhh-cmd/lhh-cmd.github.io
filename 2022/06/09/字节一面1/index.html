@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="字节测试开发实习生一面面试，凉了！！！简答还行，算法题有思路，但是题没打出来，还是代码打得少。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="字节一面-1">
+<meta property="og:url" content="http://example.com/2022/06/09/%E5%AD%97%E8%8A%82%E4%B8%80%E9%9D%A21/index.html">
+<meta property="og:site_name" content="Live For Code">
+<meta property="og:description" content="字节测试开发实习生一面面试，凉了！！！简答还行，算法题有思路，但是题没打出来，还是代码打得少。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="c:/Users/89635/AppData/Roaming/Typora/typora-user-images/image-20220609194357788.png">
+<meta property="article:published_time" content="2022-06-09T10:29:07.000Z">
+<meta property="article:modified_time" content="2022-06-11T04:49:06.700Z">
+<meta property="article:author" content="Li Honghao">
+<meta property="article:tag" content="面经">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:/Users/89635/AppData/Roaming/Typora/typora-user-images/image-20220609194357788.png">
+
+<link rel="canonical" href="http://example.com/2022/06/09/%E5%AD%97%E8%8A%82%E4%B8%80%E9%9D%A21/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>字节一面-1 | Live For Code</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Live For Code</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">代码改变世界</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/06/09/%E5%AD%97%E8%8A%82%E4%B8%80%E9%9D%A21/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar1.gif">
+      <meta itemprop="name" content="Li Honghao">
+      <meta itemprop="description" content="C++、Java、MySQL、Linux、安全、BMC">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Live For Code">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          字节一面-1
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-06-09 18:29:07" itemprop="dateCreated datePublished" datetime="2022-06-09T18:29:07+08:00">2022-06-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-06-11 12:49:06" itemprop="dateModified" datetime="2022-06-11T12:49:06+08:00">2022-06-11</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9D%A2%E7%BB%8F/" itemprop="url" rel="index"><span itemprop="name">面经</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2022/06/09/%E5%AD%97%E8%8A%82%E4%B8%80%E9%9D%A21/" class="post-meta-item leancloud_visitors" data-flag-title="字节一面-1" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/06/09/%E5%AD%97%E8%8A%82%E4%B8%80%E9%9D%A21/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/06/09/%E5%AD%97%E8%8A%82%E4%B8%80%E9%9D%A21/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <div class="post-description">字节测试开发实习生一面面试，凉了！！！简答还行，算法题有思路，但是题没打出来，还是代码打得少。</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="1、首先是自我介绍"><a href="#1、首先是自我介绍" class="headerlink" title="1、首先是自我介绍"></a>1、首先是自我介绍</h2><h2 id="2、对你实验室研究的可信计算不是很了解，能讲一下吗？那你为什么默认可信根就是可信的？"><a href="#2、对你实验室研究的可信计算不是很了解，能讲一下吗？那你为什么默认可信根就是可信的？" class="headerlink" title="2、对你实验室研究的可信计算不是很了解，能讲一下吗？那你为什么默认可信根就是可信的？"></a>2、对你实验室研究的可信计算不是很了解，能讲一下吗？那你为什么默认可信根就是可信的？</h2><p>答：</p>
+<p>首先，我认为没有绝对的的安全，所以也就没有绝对的的可信。这个问题就类似于为什么ca是可信任的，杀毒软件是安全的。所以我们肯定要通过一些手段保证可信根的安全，在这个前提下，认为他是安全的。举个例子，在与华为合作的这个项目中，可信启动方案中一般通过一次性编程实现可信根，也就是将最底层的代码一次性编程在固件中，保证还可信根不被修改，然后保证出厂时默认安全的。这样一来该可信根就可以实现对上层代码的一个度量校验。</p>
+<h2 id="3、简历写了本科做过JavaWeb的项目，就问了数据库是怎么设计的、前端怎么提交请求的过程、前端查询按钮怎么查询，用到了那些技术？"><a href="#3、简历写了本科做过JavaWeb的项目，就问了数据库是怎么设计的、前端怎么提交请求的过程、前端查询按钮怎么查询，用到了那些技术？" class="headerlink" title="3、简历写了本科做过JavaWeb的项目，就问了数据库是怎么设计的、前端怎么提交请求的过程、前端查询按钮怎么查询，用到了那些技术？"></a>3、简历写了本科做过JavaWeb的项目，就问了数据库是怎么设计的、前端怎么提交请求的过程、前端查询按钮怎么查询，用到了那些技术？</h2><p>我现在明白了一点：不会的真别写，跟着别人 水的项目别写，问了答不上来，很尴尬。即使想写要提前准备一下，编一下自己的做了哪些工作，具体怎么实现的，弄清楚。</p>
+<h2 id="3、Linux使用的多吗？如何修改一个文件？除了使用VIM，还有其他方式吗？"><a href="#3、Linux使用的多吗？如何修改一个文件？除了使用VIM，还有其他方式吗？" class="headerlink" title="3、Linux使用的多吗？如何修改一个文件？除了使用VIM，还有其他方式吗？"></a>3、Linux使用的多吗？如何修改一个文件？除了使用VIM，还有其他方式吗？</h2><p>（我写了Linux，所以才问的）</p>
+<p>我回答了两点：</p>
+<ul>
+<li>可以直接使用编辑的方式，使用vi或者vim命令对文件进行一个修改。</li>
+<li>可以使用Linux重定向，（&gt; 直接覆盖， &gt;&gt; 追加）<ul>
+<li>使用 cmd &lt; file，可以将文件作为命令的输入</li>
+<li>使用 cmd &gt; file，可以将命令的执行结果输出到文件中</li>
+<li>使用管道符将命令的执行结果作为下一个命令的执行输入</li>
+<li>举例：head -n 10 file &gt;&gt; file</li>
+</ul>
+</li>
+</ul>
+<h2 id="4、介绍一下HTTPS数据是如何实现加密的？"><a href="#4、介绍一下HTTPS数据是如何实现加密的？" class="headerlink" title="4、介绍一下HTTPS数据是如何实现加密的？"></a>4、介绍一下HTTPS数据是如何实现加密的？</h2><p>这个问题和（介绍HTTPS实现安全的原理是一样的），面试经常问。这里使用演绎的方法进行一个回答。</p>
+<p>回答：</p>
+<ul>
+<li>首先，HTTP在传输数据时是明文传输的，是不安全的，因此在传输时，需要对数据进行一个数据加密。</li>
+<li>因为对称加密效率高，所以使用对称加密对数据进行加密。</li>
+<li>但是对称加密密钥总不能使用一个固定不变的进行传输。</li>
+<li>所以使用非对称加密对对称加密密钥进行一个加密。</li>
+<li>但是服务端在发布公私钥对的时，也就是将公钥传输至客户端时，存在中间人攻击</li>
+<li>讲解中间人攻击：客户端发送HTTTPS请求，服务端生成公私钥对，将公钥传给客户端，中间人劫持到公钥。然后发布自己的公私钥对，客户端拿到中间人的公钥，加密对称加密密钥，中间人使用私钥进行解密。窃听到对称加密密钥，并将密钥使用服务端的公钥加密发给服务端，</li>
+<li>为了解决中间人攻击，使用数字签名技术解决。<ul>
+<li>首先CA生成公私钥对，发布自己的公钥，服务端使用CA的公钥，对服务端的公钥进行一个数字签名，服务端将在HTTPS过程中，服务端将数字证书传输给客户端，客户端收到数字证书后，使用CA的公钥进行验签，验签成功，即可以使用服务端的公钥对对称加密密钥进行加密传输。</li>
+<li>之所以客户端可以使用CA的公钥进行验签，是因为CA事先余留了CA的公钥。</li>
+</ul>
+</li>
+</ul>
+<h2 id="5、介绍一下进程和线程的区别？进程有哪几种状态？"><a href="#5、介绍一下进程和线程的区别？进程有哪几种状态？" class="headerlink" title="5、介绍一下进程和线程的区别？进程有哪几种状态？"></a>5、介绍一下进程和线程的区别？进程有哪几种状态？</h2><p>这个问题，面试官老喜欢问了，遇到很多次了，这次还是回答不太好（记忆的不是很清楚，回答的不够流畅，也不是很自信）。下面进行一个总结把。</p>
+<p>总结：</p>
+<p><strong>(1) 你能介绍一下进程和线程的区别吗？</strong></p>
+<p>回答：</p>
+<ul>
+<li>好的，面试官。我先介绍一下什么是进程，什么是线程。</li>
+<li>进程是程序的一次执行过程，是系统运行程序的基本单位，因此进程是动态的。系统运行一个程序即是一个进程从创建、运行到消亡的过程。</li>
+<li>线程和进程相似，但是线程是一个比进程更小的执行单位。一个进程在执行过程中可以创建多个线程。</li>
+<li>我从JAVA角度介绍一下进程和线程之间的关系吧：<ul>
+<li>一个进程可以有多个线程，多个线程共享进程的堆和方法区（JDK1.8之后是元空间）资源。但是每个线程有自己的程序计数器、虚拟机栈 和 本地方法栈。</li>
+<li>Java中运行Main方法，JVM就会启动一个进程，main方法所在的线程为主线程。</li>
+</ul>
+</li>
+</ul>
+<p>总结来说：线程是进程表划分成的更小的运行单位，一个进程在其执行过程中可以产生多个线程。线程和进程最大的区别就是，个进程是独立的，而线程并不一定，因为同一进程中的线程是有可能相互影响的。线程的开销小，但是不利于资源的管理和保护；进程正好相反。</p>
+<p><strong>（2）进程的几种状态</strong></p>
+<p>回答：进程一般分为五种状态。</p>
+<p>创建状态：进程正在被创建，还没进入就绪状态</p>
+<p>就绪状态：进程已经处于就绪队列中，也就是进程获得了除了CPU以外的所有资源，一但获得了CPU即可运行</p>
+<p>运行状态：进程正在CPU上运行</p>
+<p>阻塞状态：又称为等待状态，进程正在等待某一资源或者等待IO操作，即使CPU空闲也不运行</p>
+<p>结束状态：进程从系统中消失，可能是正常结束，也可能是异常退出。</p>
+<img src="C:\Users\89635\AppData\Roaming\Typora\typora-user-images\image-20220609194357788.png" alt="image-20220609194357788" style="zoom:50%;" />
+
+
+
+<h2 id="6、算法题：合并有序链表-要求自己创建链表"><a href="#6、算法题：合并有序链表-要求自己创建链表" class="headerlink" title="6、算法题：合并有序链表 (要求自己创建链表)"></a>6、算法题：合并有序链表 (要求自己创建链表)</h2><p>leetcode21题</p>
+<h2 id="7、你有什么想问的吗？"><a href="#7、你有什么想问的吗？" class="headerlink" title="7、你有什么想问的吗？"></a>7、你有什么想问的吗？</h2>
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>请作者喝杯奶茶吧！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="Li Honghao 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%9D%A2%E7%BB%8F/" rel="tag"># 面经</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/06/05/happy/" rel="prev" title="Redis笔记">
+      <i class="fa fa-chevron-left"></i> Redis笔记
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/06/13/%E5%AE%89%E5%85%A8%E9%9A%8F%E6%9C%BA%E6%95%B0/" rel="next" title="安全随机数">
+      安全随机数 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E9%A6%96%E5%85%88%E6%98%AF%E8%87%AA%E6%88%91%E4%BB%8B%E7%BB%8D"><span class="nav-number">1.</span> <span class="nav-text">1、首先是自我介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E5%AF%B9%E4%BD%A0%E5%AE%9E%E9%AA%8C%E5%AE%A4%E7%A0%94%E7%A9%B6%E7%9A%84%E5%8F%AF%E4%BF%A1%E8%AE%A1%E7%AE%97%E4%B8%8D%E6%98%AF%E5%BE%88%E4%BA%86%E8%A7%A3%EF%BC%8C%E8%83%BD%E8%AE%B2%E4%B8%80%E4%B8%8B%E5%90%97%EF%BC%9F%E9%82%A3%E4%BD%A0%E4%B8%BA%E4%BB%80%E4%B9%88%E9%BB%98%E8%AE%A4%E5%8F%AF%E4%BF%A1%E6%A0%B9%E5%B0%B1%E6%98%AF%E5%8F%AF%E4%BF%A1%E7%9A%84%EF%BC%9F"><span class="nav-number">2.</span> <span class="nav-text">2、对你实验室研究的可信计算不是很了解，能讲一下吗？那你为什么默认可信根就是可信的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E7%AE%80%E5%8E%86%E5%86%99%E4%BA%86%E6%9C%AC%E7%A7%91%E5%81%9A%E8%BF%87JavaWeb%E7%9A%84%E9%A1%B9%E7%9B%AE%EF%BC%8C%E5%B0%B1%E9%97%AE%E4%BA%86%E6%95%B0%E6%8D%AE%E5%BA%93%E6%98%AF%E6%80%8E%E4%B9%88%E8%AE%BE%E8%AE%A1%E7%9A%84%E3%80%81%E5%89%8D%E7%AB%AF%E6%80%8E%E4%B9%88%E6%8F%90%E4%BA%A4%E8%AF%B7%E6%B1%82%E7%9A%84%E8%BF%87%E7%A8%8B%E3%80%81%E5%89%8D%E7%AB%AF%E6%9F%A5%E8%AF%A2%E6%8C%89%E9%92%AE%E6%80%8E%E4%B9%88%E6%9F%A5%E8%AF%A2%EF%BC%8C%E7%94%A8%E5%88%B0%E4%BA%86%E9%82%A3%E4%BA%9B%E6%8A%80%E6%9C%AF%EF%BC%9F"><span class="nav-number">3.</span> <span class="nav-text">3、简历写了本科做过JavaWeb的项目，就问了数据库是怎么设计的、前端怎么提交请求的过程、前端查询按钮怎么查询，用到了那些技术？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81Linux%E4%BD%BF%E7%94%A8%E7%9A%84%E5%A4%9A%E5%90%97%EF%BC%9F%E5%A6%82%E4%BD%95%E4%BF%AE%E6%94%B9%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%EF%BC%9F%E9%99%A4%E4%BA%86%E4%BD%BF%E7%94%A8VIM%EF%BC%8C%E8%BF%98%E6%9C%89%E5%85%B6%E4%BB%96%E6%96%B9%E5%BC%8F%E5%90%97%EF%BC%9F"><span class="nav-number">4.</span> <span class="nav-text">3、Linux使用的多吗？如何修改一个文件？除了使用VIM，还有其他方式吗？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4%E3%80%81%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8BHTTPS%E6%95%B0%E6%8D%AE%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%8A%A0%E5%AF%86%E7%9A%84%EF%BC%9F"><span class="nav-number">5.</span> <span class="nav-text">4、介绍一下HTTPS数据是如何实现加密的？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5%E3%80%81%E4%BB%8B%E7%BB%8D%E4%B8%80%E4%B8%8B%E8%BF%9B%E7%A8%8B%E5%92%8C%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%9F%E8%BF%9B%E7%A8%8B%E6%9C%89%E5%93%AA%E5%87%A0%E7%A7%8D%E7%8A%B6%E6%80%81%EF%BC%9F"><span class="nav-number">6.</span> <span class="nav-text">5、介绍一下进程和线程的区别？进程有哪几种状态？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6%E3%80%81%E7%AE%97%E6%B3%95%E9%A2%98%EF%BC%9A%E5%90%88%E5%B9%B6%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8-%E8%A6%81%E6%B1%82%E8%87%AA%E5%B7%B1%E5%88%9B%E5%BB%BA%E9%93%BE%E8%A1%A8"><span class="nav-number">7.</span> <span class="nav-text">6、算法题：合并有序链表 (要求自己创建链表)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7%E3%80%81%E4%BD%A0%E6%9C%89%E4%BB%80%E4%B9%88%E6%83%B3%E9%97%AE%E7%9A%84%E5%90%97%EF%BC%9F"><span class="nav-number">8.</span> <span class="nav-text">7、你有什么想问的吗？</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Li Honghao"
+      src="/images/avatar1.gif">
+  <p class="site-author-name" itemprop="name">Li Honghao</p>
+  <div class="site-description" itemprop="description">C++、Java、MySQL、Linux、安全、BMC</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lhh-cmd" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lhh-cmd" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://dashi.163.com/login/?from=dashi" title="E-Mail → https:&#x2F;&#x2F;dashi.163.com&#x2F;login&#x2F;?from&#x3D;dashi" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/HaoStar00" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;HaoStar00" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/QQ896357473" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;QQ896357473" rel="noopener" target="_blank">CSDN</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+      
+        <div>
+           <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="410" height="110" src="//music.163.com/outchain/player?type=2&id=31445772&auto=1&height=66"></iframe>
+        </div>
+      
+
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Honghao</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'k1olnQSil3rNzLIFw4lBw77r-gzGzoHsz',
+      appKey     : 'TcdT0hN2dDHDu9qvf8Gk8ues',
+      placeholder: "(～￣▽￣)～来呀！吐槽一番吧！！！",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+  
+    <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
