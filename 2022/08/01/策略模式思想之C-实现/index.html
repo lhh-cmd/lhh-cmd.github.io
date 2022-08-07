@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="这段代码是我在实验室项目中的代码，是利用枚举变量和函数数组实现对不同枚举变量选择不同活动的处理。背景是，在一个Socket通信中，一段发送消息，而另一端接收消息，接受者根据发送者发送的命令执行回调函数。">
+  <meta name="description" content="这段代码是我在实验室项目中的代码，是利用枚举变量和函数数组实现对不同枚举变量选择不同活动的处理。背景是，在应用层设计一个传输协议，在一个Socket层之上，一段发送消息，而另一端接收消息，接受者根据发送者发送的命令执行回调函数。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="策略模式思想之C&#x2F;C++实现">
+<meta property="og:title" content="策略模式思想之C实现">
 <meta property="og:url" content="http://example.com/2022/08/01/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%E6%80%9D%E6%83%B3%E4%B9%8BC-%E5%AE%9E%E7%8E%B0/index.html">
 <meta property="og:site_name" content="Live For Code">
-<meta property="og:description" content="这段代码是我在实验室项目中的代码，是利用枚举变量和函数数组实现对不同枚举变量选择不同活动的处理。背景是，在一个Socket通信中，一段发送消息，而另一端接收消息，接受者根据发送者发送的命令执行回调函数。">
+<meta property="og:description" content="这段代码是我在实验室项目中的代码，是利用枚举变量和函数数组实现对不同枚举变量选择不同活动的处理。背景是，在应用层设计一个传输协议，在一个Socket层之上，一段发送消息，而另一端接收消息，接受者根据发送者发送的命令执行回调函数。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-01T15:15:22.000Z">
-<meta property="article:modified_time" content="2022-08-01T15:43:33.055Z">
+<meta property="article:modified_time" content="2022-08-07T02:26:53.464Z">
 <meta property="article:author" content="Li Honghao">
 <meta property="article:tag" content="策略模式">
-<meta property="article:tag" content="C++">
 <meta property="article:tag" content="函数指针">
 <meta property="article:tag" content="指针数组">
+<meta property="article:tag" content="C">
 <meta name="twitter:card" content="summary">
 
 <link rel="canonical" href="http://example.com/2022/08/01/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%E6%80%9D%E6%83%B3%E4%B9%8BC-%E5%AE%9E%E7%8E%B0/">
@@ -49,7 +49,7 @@
   };
 </script>
 
-  <title>策略模式思想之C/C++实现 | Live For Code</title>
+  <title>策略模式思想之C实现 | Live For Code</title>
   
 
 
@@ -212,7 +212,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          策略模式思想之C/C++实现
+          策略模式思想之C实现
         </h1>
 
         <div class="post-meta">
@@ -221,10 +221,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-08-01 23:15:22 / 修改时间：23:43:33" itemprop="dateCreated datePublished" datetime="2022-08-01T23:15:22+08:00">2022-08-01</time>
+              <time title="创建时间：2022-08-01 23:15:22" itemprop="dateCreated datePublished" datetime="2022-08-01T23:15:22+08:00">2022-08-01</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-08-07 10:26:53" itemprop="dateModified" datetime="2022-08-07T10:26:53+08:00">2022-08-07</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -236,7 +242,7 @@
             </span>
 
           
-            <span id="/2022/08/01/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%E6%80%9D%E6%83%B3%E4%B9%8BC-%E5%AE%9E%E7%8E%B0/" class="post-meta-item leancloud_visitors" data-flag-title="策略模式思想之C/C++实现" title="阅读次数">
+            <span id="/2022/08/01/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%E6%80%9D%E6%83%B3%E4%B9%8BC-%E5%AE%9E%E7%8E%B0/" class="post-meta-item leancloud_visitors" data-flag-title="策略模式思想之C实现" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
@@ -257,7 +263,7 @@
   </span>
   
   
-            <div class="post-description">这段代码是我在实验室项目中的代码，是利用枚举变量和函数数组实现对不同枚举变量选择不同活动的处理。背景是，在一个Socket通信中，一段发送消息，而另一端接收消息，接受者根据发送者发送的命令执行回调函数。</div>
+            <div class="post-description">这段代码是我在实验室项目中的代码，是利用枚举变量和函数数组实现对不同枚举变量选择不同活动的处理。背景是，在应用层设计一个传输协议，在一个Socket层之上，一段发送消息，而另一端接收消息，接受者根据发送者发送的命令执行回调函数。</div>
 
         </div>
       </header>
@@ -268,19 +274,74 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="策略模式思想之C-x2F-C-实现"><a href="#策略模式思想之C-x2F-C-实现" class="headerlink" title="策略模式思想之C&#x2F;C++实现"></a>策略模式思想之C&#x2F;C++实现</h1><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>这里不对Socket通信，数据接收与枚举命令解析进行讲解，只对策略思想实现进行说明。</p>
+        <h1 id="策略模式思想之C实现"><a href="#策略模式思想之C实现" class="headerlink" title="策略模式思想之C实现"></a>策略模式思想之C实现</h1><h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>这里不对Socket通信，数据接收与枚举命令解析进行讲解，只对策略思想实现进行说明。</p>
 <p><strong>场景</strong></p>
 <p>​	假设接受者接收到命令之后，要根据命令实现不同的逻辑处理，如果使用if &#x2F; else 的方式，将会使得代码臃肿，并且不易于扩展。即使将每段处理逻辑封装成一个个函数，看起来精简一些，但是不满足开闭原则。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (cmd == <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="built_in">function_a</span>();</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (cmd == <span class="number">2</span>) &#123;</span><br><span class="line">    <span class="built_in">function_b</span>();</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (cmd == <span class="number">3</span>) &#123;</span><br><span class="line">    <span class="built_in">function_c</span>();</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">function_d</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (cmd == <span class="number">1</span>) &#123;</span><br><span class="line">    function_a();</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (cmd == <span class="number">2</span>) &#123;</span><br><span class="line">    function_b();</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (cmd == <span class="number">3</span>) &#123;</span><br><span class="line">    function_c();</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    function_d();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>​	</p>
 <p>​	如果接受者接受到两级命令的场景，不同的一级命令下又有多个二级命令。如果还使用以上的方式，显然不是很好解决方法。</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (cmd == <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (sub_cmd == <span class="number">3</span>) &#123;</span><br><span class="line">        <span class="built_in">function_a</span>();</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">if</span> (sub_cmd == <span class="number">4</span>) &#123;</span><br><span class="line">        <span class="built_in">function_b</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (cmd ==<span class="number">2</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (sub_cmd == <span class="number">5</span>) &#123;</span><br><span class="line">        <span class="built_in">function_c</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (sub_cmd == <span class="number">6</span>) &#123;</span><br><span class="line">        <span class="built_in">function_d</span>();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (cmd == <span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (sub_cmd == <span class="number">3</span>) &#123;</span><br><span class="line">        function_a();</span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">if</span> (sub_cmd == <span class="number">4</span>) &#123;</span><br><span class="line">        function_b();</span><br><span class="line">    &#125;</span><br><span class="line">&#125; <span class="keyword">else</span> <span class="keyword">if</span> (cmd ==<span class="number">2</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span> (sub_cmd == <span class="number">5</span>) &#123;</span><br><span class="line">        function_c();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (sub_cmd == <span class="number">6</span>) &#123;</span><br><span class="line">        function_d();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
 
 <p>显然这种代码非常不好。</p>
-<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><h3 id="定义命令"><a href="#定义命令" class="headerlink" title="定义命令"></a>定义命令</h3><p><strong>1、定义枚举类型，根据不同的枚举类型执行不同的活动策略</strong></p>
+<p>当执行一级命令MY_CMD_A时，应该执行隶属于该一级命令下的二级命令。并且对于A下的二级命令从 0x03~0x0F是保留的，随时可以扩充。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义一级枚举类型</span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">First_strategy_command</span>&#123;</span></span><br><span class="line">    RESERVED1 = <span class="number">0x00</span>,</span><br><span class="line">    MY_CMD_A = <span class="number">0x01</span>,     </span><br><span class="line">    MY_CMD_B = <span class="number">0x02</span>,      </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 定义二级命令</span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">Second_strategy_command</span>&#123;</span></span><br><span class="line">    RESERVED2 = <span class="number">0x00</span>,            </span><br><span class="line"></span><br><span class="line">    A_SUB_CMD_1 = <span class="number">0x01</span>,     </span><br><span class="line">    A_SUB_CMD_2 = <span class="number">0x02</span>,      </span><br><span class="line">   </span><br><span class="line">    B_SUB_CMD_1 = <span class="number">0x10</span>,	        </span><br><span class="line">    B_SUB_CMD_2 = <span class="number">0x11</span>,           </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="定义函数指针数组"><a href="#定义函数指针数组" class="headerlink" title="定义函数指针数组"></a>定义函数指针数组</h3><p>函数指针数组利用枚举值来指向函数指针，通过数组很方便的管理回调函数，提高了代码的可扩展性，并且减少了代码量。</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> CMD_NUMBER 3    </span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> SUB_CMD_NUMBER ((CMD_NUMBER-1) * 16)</span></span><br><span class="line"><span class="type">int</span> (*f_cmd_call[CMD_NUMBER])(<span class="type">int</span>) = &#123;&#125;;   <span class="comment">//一级回调函数</span></span><br><span class="line"><span class="type">int</span> (*f_sub_cmd_call[SUB_CMD_NUMBER])() = &#123;&#125;;    <span class="comment">//二级回调函数</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="初始化函数指针数组"><a href="#初始化函数指针数组" class="headerlink" title="初始化函数指针数组"></a>初始化函数指针数组</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">call_back_init</span><span class="params">()</span>&#123;</span><br><span class="line">    <span class="comment">//初始化一级回调函数</span></span><br><span class="line">    f_cmd_call[RESERVED1] = reserved_function;</span><br><span class="line">    f_cmd_call[MY_CMD_A] = a_cmd_call;</span><br><span class="line">    f_cmd_call[MY_CMD_B] = b_cmd_call;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//初始化二级回调函数</span></span><br><span class="line">    f_sub_cmd_call[A_SUB_CMD_1] = function_1;</span><br><span class="line">    f_sub_cmd_call[A_SUB_CMD_2] = function_2;</span><br><span class="line">    </span><br><span class="line">    f_sub_cmd_call[B_SUB_CMD_1] = function_3;</span><br><span class="line">    f_sub_cmd_call[B_SUB_CMD_2] = function_4;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="回调处理"><a href="#回调处理" class="headerlink" title="回调处理"></a>回调处理</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 调用一级命令函数，由cmd 确定调用哪个一级命令回调函数</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">execute_cmd</span><span class="params">(<span class="type">int</span> cmd, <span class="type">int</span> sub_cmd)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> ret = <span class="number">0</span>;</span><br><span class="line">    ret = (*f_cmd_call[cmd])(sub_cmd);	<span class="comment">// 使用函数指针调用一级命令函数</span></span><br><span class="line">    <span class="keyword">if</span>(ret == <span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;f_cmd_call error.&quot;</span>);</span><br><span class="line">        <span class="keyword">goto</span> <span class="built_in">exit</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"><span class="built_in">exit</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一级命令 MY_CMD_A 的回调函数</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">a_cmd_call</span><span class="params">(sub_cmd)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> ret = <span class="number">0</span>;</span><br><span class="line">    ret = (*f_sub_cmd_call[sub_cmd])();<span class="comment">// 使用指针调用二级命令函数</span></span><br><span class="line">    <span class="keyword">if</span>(ret == <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">goto</span> <span class="built_in">exit</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line"><span class="built_in">exit</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一级命令 MY_CMD_B 的回调函数</span></span><br><span class="line"><span class="type">int</span> <span class="title function_">b_cmd_call</span><span class="params">(sub_cmd)</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">int</span> ret = <span class="number">0</span>;</span><br><span class="line">    ret = (*f_sub_cmd_call[sub_cmd])(); <span class="comment">// 使用指针调用二级命令函数</span></span><br><span class="line">    <span class="keyword">if</span>(ret == <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">goto</span> <span class="built_in">exit</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> ret;</span><br><span class="line"><span class="built_in">exit</span>:</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="策略函数实现"><a href="#策略函数实现" class="headerlink" title="策略函数实现"></a>策略函数实现</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">function_1</span><span class="params">()</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;MY_CMD_A, A_SUB_CMD_1&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">function_2</span><span class="params">()</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;MY_CMD_A, A_SUB_CMD_2&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">function_3</span><span class="params">()</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;MY_CMD_B, B_SUB_CMD_1&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">function_4</span><span class="params">()</span> </span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;MY_CMD_B, B_SUB_CMD_2&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
 
     
@@ -305,9 +366,9 @@
       <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/" rel="tag"># 策略模式</a>
-              <a href="/tags/C/" rel="tag"># C++</a>
               <a href="/tags/%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88/" rel="tag"># 函数指针</a>
               <a href="/tags/%E6%8C%87%E9%92%88%E6%95%B0%E7%BB%84/" rel="tag"># 指针数组</a>
+              <a href="/tags/C/" rel="tag"># C</a>
           </div>
 
         
@@ -382,7 +443,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%E6%80%9D%E6%83%B3%E4%B9%8BC-x2F-C-%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.</span> <span class="nav-text">策略模式思想之C&#x2F;C++实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E"><span class="nav-number">1.1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.2.</span> <span class="nav-text">代码实现</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F%E6%80%9D%E6%83%B3%E4%B9%8BC%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.</span> <span class="nav-text">策略模式思想之C实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B4%E6%98%8E"><span class="nav-number">1.1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.2.</span> <span class="nav-text">代码实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%91%BD%E4%BB%A4"><span class="nav-number">1.2.1.</span> <span class="nav-text">定义命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88%E6%95%B0%E7%BB%84"><span class="nav-number">1.2.2.</span> <span class="nav-text">定义函数指针数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%87%BD%E6%95%B0%E6%8C%87%E9%92%88%E6%95%B0%E7%BB%84"><span class="nav-number">1.2.3.</span> <span class="nav-text">初始化函数指针数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9B%9E%E8%B0%83%E5%A4%84%E7%90%86"><span class="nav-number">1.2.4.</span> <span class="nav-text">回调处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AD%96%E7%95%A5%E5%87%BD%E6%95%B0%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.2.5.</span> <span class="nav-text">策略函数实现</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
