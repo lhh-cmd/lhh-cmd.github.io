@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="aaa">
+  <meta name="description" content="Ja">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Restful风格">
 <meta property="og:url" content="http://example.com/2022/08/05/Restful%E9%A3%8E%E6%A0%BC/index.html">
 <meta property="og:site_name" content="Live For Code">
-<meta property="og:description" content="aaa">
+<meta property="og:description" content="Ja">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-08-05T13:07:42.000Z">
-<meta property="article:modified_time" content="2022-08-05T13:13:25.028Z">
+<meta property="article:modified_time" content="2022-08-07T02:48:20.482Z">
 <meta property="article:author" content="Li Honghao">
 <meta property="article:tag" content="C++、Java、Mysql、Linux">
 <meta name="twitter:card" content="summary">
@@ -218,9 +218,24 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-08-05 21:07:42 / 修改时间：21:13:25" itemprop="dateCreated datePublished" datetime="2022-08-05T21:07:42+08:00">2022-08-05</time>
+              <time title="创建时间：2022-08-05 21:07:42" itemprop="dateCreated datePublished" datetime="2022-08-05T21:07:42+08:00">2022-08-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-08-07 10:48:20" itemprop="dateModified" datetime="2022-08-07T10:48:20+08:00">2022-08-07</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
             </span>
 
           
@@ -245,7 +260,7 @@
   </span>
   
   
-            <div class="post-description">aaa</div>
+            <div class="post-description">Ja</div>
 
         </div>
       </header>
@@ -256,17 +271,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_45861545/article/details/120835738">https://blog.csdn.net/m0_45861545/article/details/120835738</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45872399/article/details/118118352">https://blog.csdn.net/qq_45872399/article/details/118118352</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/mozushixin_1/article/details/123093241">https://blog.csdn.net/mozushixin_1/article/details/123093241</a></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">dispositionName = ASCIIUtils.Chinese2ISO8859(dispositionName);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用ISO8859-1解码</span></span><br><span class="line">ISO8859 = ASCIIUtils.Chinese2ISO8859(dispositionFilename);</span><br><span class="line">value = String.format(DISPOSITION_STRING_EXT, dispositionName, ISO8859);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 测试</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 使用 getBytes() &#123;StringCoding.encode(coder(), value);&#125; utf-8编码,使用unicode解码。</span></span><br><span class="line"><span class="type">String</span> <span class="variable">unicode</span> <span class="operator">=</span> ASCIIUtils.bytes2Unicode(dispositionFilename.getBytes());</span><br><span class="line">System.out.println(<span class="string">&quot;=============&quot;</span> + unicode + <span class="string">&quot;================&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打印底层 bytes 十六进制数据</span></span><br><span class="line"><span class="type">String</span> <span class="variable">hex</span> <span class="operator">=</span> ASCIIUtils.convertBytes2Hex(dispositionFilename.getBytes());</span><br><span class="line">System.out.println(<span class="string">&quot;----------------------&quot;</span> + hex + <span class="string">&quot;--------------------&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="type">String</span> <span class="variable">hex1</span> <span class="operator">=</span> ASCIIUtils.convertBytes2Hex(ISO8859.getBytes(StandardCharsets.ISO_8859_1));</span><br><span class="line">System.out.println(<span class="string">&quot;-----------------&quot;</span> + hex1 + <span class="string">&quot;---------------------&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// utf-8</span></span><br><span class="line"><span class="type">String</span> <span class="variable">utf8</span> <span class="operator">=</span> ASCIIUtils.bytes2UTF8(dispositionFilename.getBytes());</span><br><span class="line">System.out.println(<span class="string">&quot;----------------------&quot;</span> + utf8 + <span class="string">&quot;--------------------&quot;</span>);</span><br></pre></td></tr></table></figure>
-
-
-
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/hjfcgt123/article/details/87278782">https://blog.csdn.net/hjfcgt123/article/details/87278782</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_35221138/article/details/79661998?spm=1001.2101.3001.6650.2&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-2-79661998-blog-87278782.pc_relevant_multi_platform_whitelistv3&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-2-79661998-blog-87278782.pc_relevant_multi_platform_whitelistv3&amp;utm_relevant_index=5">https://blog.csdn.net/qq_35221138/article/details/79661998?spm=1001.2101.3001.6650.2&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-2-79661998-blog-87278782.pc_relevant_multi_platform_whitelistv3&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-2-79661998-blog-87278782.pc_relevant_multi_platform_whitelistv3&amp;utm_relevant_index=5</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/536437382">https://zhuanlan.zhihu.com/p/536437382</a></p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/jinjiniao1/article/details/100849237">https://blog.csdn.net/jinjiniao1/article/details/100849237</a></p>
+        <h2 id="什么是REST-API"><a href="#什么是REST-API" class="headerlink" title="什么是REST API?"></a>什么是REST API?</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/536437382">https://zhuanlan.zhihu.com/p/536437382</a></p>
+<h2 id="RestController注解"><a href="#RestController注解" class="headerlink" title="RestController注解"></a>RestController注解</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/hjfcgt123/article/details/87278782">https://blog.csdn.net/hjfcgt123/article/details/87278782</a></p>
+<h2 id="RestController和-Controller的区别"><a href="#RestController和-Controller的区别" class="headerlink" title="@RestController和@Controller的区别"></a>@RestController和@Controller的区别</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_35221138/article/details/79661998?spm=1001.2101.3001.6650.2&amp;utm_medium=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-2-79661998-blog-87278782.pc_relevant_multi_platform_whitelistv3&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2~default~CTRLIST~default-2-79661998-blog-87278782.pc_relevant_multi_platform_whitelistv3&amp;utm_relevant_index=5">https://blog.csdn.net/qq_35221138/article/details/79661998?spm=1001.2101.3001.6650.2&amp;utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-2-79661998-blog-87278782.pc_relevant_multi_platform_whitelistv3&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7ECTRLIST%7Edefault-2-79661998-blog-87278782.pc_relevant_multi_platform_whitelistv3&amp;utm_relevant_index=5</a></p>
+<h2 id="RestTemplate详细用法："><a href="#RestTemplate详细用法：" class="headerlink" title="RestTemplate详细用法："></a>RestTemplate详细用法：</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/jinjiniao1/article/details/100849237">https://blog.csdn.net/jinjiniao1/article/details/100849237</a></p>
 
     </div>
 
@@ -363,6 +371,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFREST-API"><span class="nav-number">1.</span> <span class="nav-text">什么是REST API?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RestController%E6%B3%A8%E8%A7%A3"><span class="nav-number">2.</span> <span class="nav-text">RestController注解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RestController%E5%92%8C-Controller%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">3.</span> <span class="nav-text">@RestController和@Controller的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RestTemplate%E8%AF%A6%E7%BB%86%E7%94%A8%E6%B3%95%EF%BC%9A"><span class="nav-number">4.</span> <span class="nav-text">RestTemplate详细用法：</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -378,7 +387,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">26</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -391,7 +400,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
