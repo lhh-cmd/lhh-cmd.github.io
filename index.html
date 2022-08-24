@@ -218,7 +218,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-08-24 17:09:37 / 修改时间：18:26:09" itemprop="dateCreated datePublished" datetime="2022-08-24T17:09:37+08:00">2022-08-24</time>
+              <time title="创建时间：2022-08-24 17:09:37 / 修改时间：18:41:10" itemprop="dateCreated datePublished" datetime="2022-08-24T17:09:37+08:00">2022-08-24</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -262,156 +262,15 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="32位操作系统"><a href="#32位操作系统" class="headerlink" title="32位操作系统"></a>32位操作系统</h1><p>32位操作系统(无论是Linux系统还是Windows系统都是一样的)：</p>
-<table>
-<thead>
-<tr>
-<th align="center">数据类型</th>
-<th align="center">32位</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">bool</td>
-<td align="center">1</td>
-</tr>
-<tr>
-<td align="center">char</td>
-<td align="center">1</td>
-</tr>
-<tr>
-<td align="center">unsigned char</td>
-<td align="center">1</td>
-</tr>
-<tr>
-<td align="center">short int</td>
-<td align="center">2</td>
-</tr>
-<tr>
-<td align="center">int</td>
-<td align="center">4</td>
-</tr>
-<tr>
-<td align="center">指针</td>
-<td align="center">4</td>
-</tr>
-<tr>
-<td align="center">unsigned int</td>
-<td align="center">4</td>
-</tr>
-<tr>
-<td align="center">float</td>
-<td align="center">4</td>
-</tr>
-<tr>
-<td align="center">long</td>
-<td align="center">4</td>
-</tr>
-<tr>
-<td align="center">unsigned long</td>
-<td align="center">4</td>
-</tr>
-<tr>
-<td align="center">double</td>
-<td align="center">8</td>
-</tr>
-<tr>
-<td align="center">long long</td>
-<td align="center">8</td>
-</tr>
-<tr>
-<td align="center">指针</td>
-<td align="center">4</td>
-</tr>
-</tbody></table>
-<h1 id="64位操纵系统"><a href="#64位操纵系统" class="headerlink" title="64位操纵系统"></a>64位操纵系统</h1><table>
-<thead>
-<tr>
-<th>数据类型</th>
-<th>Windows</th>
-<th>Linux</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>bool</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td>char</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td>unsigned char</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td>short int</td>
-<td>2</td>
-<td>2</td>
-</tr>
-<tr>
-<td>int</td>
-<td>4</td>
-<td>4</td>
-</tr>
-<tr>
-<td>指针</td>
-<td>8</td>
-<td>8</td>
-</tr>
-<tr>
-<td>unsigned int</td>
-<td>4</td>
-<td>4</td>
-</tr>
-<tr>
-<td>float</td>
-<td>4</td>
-<td>4</td>
-</tr>
-<tr>
-<td><strong>long</strong></td>
-<td><strong>4</strong></td>
-<td><strong>8</strong></td>
-</tr>
-<tr>
-<td><strong>unsigned long</strong></td>
-<td><strong>4</strong></td>
-<td><strong>8</strong></td>
-</tr>
-<tr>
-<td>double</td>
-<td>8</td>
-<td>8</td>
-</tr>
-<tr>
-<td>long long</td>
-<td>8</td>
-<td>8</td>
-</tr>
-</tbody></table>
-<h1 id="结构体类型大小"><a href="#结构体类型大小" class="headerlink" title="结构体类型大小"></a>结构体类型大小</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 大小 4 + 4 + 4 = 12</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">S1</span>&#123;</span><br><span class="line">    <span class="type">char</span> c;	<span class="comment">// 字节对齐占4字节</span></span><br><span class="line">    <span class="type">char</span>* p1; <span class="comment">// 指针类型32位系统，占用4字节</span></span><br><span class="line">    <span class="type">int</span> a; <span class="comment">// int 占用4字节</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//占用8字节 c1,c2字节对齐占用4字节</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">S2</span>&#123;</span><br><span class="line">	<span class="type">char</span> c1;</span><br><span class="line">  	<span class="type">char</span> c2;</span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 空结构体的大小为1，原因是因为：C++中空类和空结构体都可以被实例化，为了实现在内存中独一无二的地址，编译器往往会给一个空类隐含的加一个字节，这样空类在实例化后在内存中就有了独一无二的地址，所以空类和空结构体的内存大小都为 1 。</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">S3</span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<h1 id="空类的大小"><a href="#空类的大小" class="headerlink" title="空类的大小"></a>空类的大小</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123;</span><br><span class="line">    </span><br><span class="line">&#125;；</span><br><span class="line"><span class="comment">// 空类的大小为 1，原因同空结构体一样。</span></span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="类的大小"><a href="#类的大小" class="headerlink" title="类的大小"></a>类的大小</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">EmptyA</span> &#123;&#125;;  <span class="comment">// 大小为1</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">A</span> &#123;	<span class="comment">// 大小为4，只有一个int类型</span></span><br><span class="line">    <span class="type">int</span> a;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="comment">//为什么同样是继承。类D把类A的大小继承了下来。而类B的大小却是4，为什么没有把EmptyA的大小继承下来呢？</span></span><br><span class="line"><span class="comment">//这就是本文想分享的空基类优化(EBO)技术。具体其实上面的示例已经很清楚了，就是子类如果继承空类，并不会产生额外的大小，它的大小还是子类本身的大小。</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">B</span> : <span class="keyword">public</span> EmptyA &#123;  </span><br><span class="line">    <span class="type">int</span> b;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 类D的大小是8，因为int占4个字节，继承的A类也占4个字节，最后就是8</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">D</span> : <span class="keyword">public</span> A &#123;</span><br><span class="line">    <span class="type">int</span> d;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="comment">// 类C的大小是8，因为int占四个字节，EmptyA占1个字节，再加上字节对齐，编译器补了4个字节，最后就是8</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">C</span> &#123;</span><br><span class="line">    <span class="type">int</span> c;</span><br><span class="line">    EmptyA d;</span><br><span class="line">&#125;;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;sizeof EmptyA &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(EmptyA) &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;sizeof B &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(B) &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;sizeof C &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(C) &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;sizeof A &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(A) &lt;&lt; std::endl;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;sizeof D &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(D) &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>运行结果：</strong></p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">sizeof</span> EmptyA <span class="number">1</span></span><br><span class="line"><span class="keyword">sizeof</span> B <span class="number">4</span></span><br><span class="line"><span class="keyword">sizeof</span> C <span class="number">8</span></span><br><span class="line"><span class="keyword">sizeof</span> A <span class="number">4</span></span><br><span class="line"><span class="keyword">sizeof</span> D <span class="number">8</span></span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>补充：</strong></p>
-<p><strong>但是在C语言中空结构体的大小为0.</strong></p>
-<h1 id="测试代码："><a href="#测试代码：" class="headerlink" title="测试代码："></a>测试代码：</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">(<span class="type">int</span> argc, <span class="type">char</span>* argv[])</span> </span>&#123;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;sizeof(bool) = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">bool</span>) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;sizeof(char) = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">char</span>) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;sizeof(unsigned char) = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">unsigned</span> <span class="type">char</span>) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;sizeof(short int) = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">short</span> <span class="type">int</span>) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;sizeof(int) = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">int</span>) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;sizeof(unsigned int) = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">unsigned</span> <span class="type">int</span>) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;sizeof(float) = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">float</span>) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;sizeof(long) = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">long</span>) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;sizeof(unsigned long) = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">unsigned</span> <span class="type">long</span>) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;sizeof(double) = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">double</span>) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;sizeof(long long) = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">long</span> <span class="type">long</span>) &lt;&lt; endl;</span><br><span class="line"> </span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;指针&quot;</span> &lt;&lt; endl;</span><br><span class="line"> </span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;sizeof(bool*) = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">bool</span>*) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;sizeof(char*) = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">char</span>*) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;sizeof(unsigned char*) = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">unsigned</span> <span class="type">char</span>*) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;sizeof(short int*) = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">short</span> <span class="type">int</span>*) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;sizeof(int*) = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">int</span>*) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;sizeof(unsigned int*) = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">unsigned</span> <span class="type">int</span>*) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;sizeof(float*) = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">float</span>*) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;sizeof(long*) = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">long</span>*) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;sizeof(unsigned long*) = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">unsigned</span> <span class="type">long</span>*) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;sizeof(double*) = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">double</span>*) &lt;&lt; endl;</span><br><span class="line">	cout &lt;&lt; <span class="string">&quot;sizeof(long long*) = &quot;</span> &lt;&lt; <span class="built_in">sizeof</span>(<span class="type">long</span>*) &lt;&lt; endl;</span><br><span class="line"> </span><br><span class="line">	<span class="built_in">system</span>(<span class="string">&quot;pause&quot;</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
+          <p>C++基本数据类型、结构体、类大小总结。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/08/24/C-%E5%90%84%E7%B1%BB%E5%9E%8B%E5%A4%A7%E5%B0%8F%E6%80%BB%E7%BB%93/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
