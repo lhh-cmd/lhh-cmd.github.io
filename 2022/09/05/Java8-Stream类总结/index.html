@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="Java8新特性Stream流总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java8-Stream类总结">
+<meta property="og:url" content="http://example.com/2022/09/05/Java8-Stream%E7%B1%BB%E6%80%BB%E7%BB%93/index.html">
+<meta property="og:site_name" content="Live For Code">
+<meta property="og:description" content="Java8新特性Stream流总结">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-09-05T02:12:26.000Z">
+<meta property="article:modified_time" content="2022-09-05T05:22:19.159Z">
+<meta property="article:author" content="Li Honghao">
+<meta property="article:tag" content="Java">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2022/09/05/Java8-Stream%E7%B1%BB%E6%80%BB%E7%BB%93/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Java8-Stream类总结 | Live For Code</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Live For Code</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">代码改变世界</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/09/05/Java8-Stream%E7%B1%BB%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar1.gif">
+      <meta itemprop="name" content="Li Honghao">
+      <meta itemprop="description" content="C++、Java、MySQL、Linux、安全、BMC">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Live For Code">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Java8-Stream类总结
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-09-05 10:12:26 / 修改时间：13:22:19" itemprop="dateCreated datePublished" datetime="2022-09-05T10:12:26+08:00">2022-09-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index"><span itemprop="name">Java</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/2022/09/05/Java8-Stream%E7%B1%BB%E6%80%BB%E7%BB%93/" class="post-meta-item leancloud_visitors" data-flag-title="Java8-Stream类总结" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/09/05/Java8-Stream%E7%B1%BB%E6%80%BB%E7%BB%93/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/09/05/Java8-Stream%E7%B1%BB%E6%80%BB%E7%BB%93/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+            <div class="post-description">Java8新特性Stream流总结</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="什么是Stream"><a href="#什么是Stream" class="headerlink" title="什么是Stream"></a>什么是Stream</h1><p>Stream是流，通过将集合转换为“流”的元素序列，通过声明性方式，能够将对集合中的每个元素进行一系列并行或者串行的流水线操作。</p>
+<h1 id="流操作"><a href="#流操作" class="headerlink" title="流操作"></a>流操作</h1><p>数据源——&gt;流——–&gt;中间操作———-&gt;中断操作</p>
+<p>整个流操作就是一个流水线，将元素放在流水线上一个个进行处理。</p>
+<p>数据源：原始集合</p>
+<p>然后将List集合转换为Stream类型的流，并对流进行一系列中间操作。</p>
+<p>中间操作：比如过滤保留部分元素，对元素进行排序，类型转换；</p>
+<p>最后在进行一个中断操作。</p>
+<p>中断操作：可以把Stream转化为集合类型，也可以直接对其中的各元素进行处理，比如打印，计算总数，计算最大值。</p>
+<p><strong>注意：流操作本身返回一个流，所以多个操作可以直接连接起来。</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.stream.Collectors;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> java.util.stream.Collectors.toList;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> lihaha</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span> 2022/9/5 10:25</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Description</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@email</span> 896357473@qq.com</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StreamTest</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        ArrayList&lt;Person&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;Person&gt;();</span><br><span class="line">        list.add(<span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&quot;张三&quot;</span>,<span class="number">10</span>));</span><br><span class="line">        list.add(<span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&quot;李四&quot;</span>,<span class="number">10</span>));</span><br><span class="line">        list.add(<span class="keyword">new</span> <span class="title class_">Person</span>(<span class="string">&quot;王二&quot;</span>,<span class="number">10</span>));</span><br><span class="line">        List&lt;String&gt; newList = list.stream().map(Person::getName).sorted().collect(toList());</span><br><span class="line">        <span class="keyword">for</span> (String s : newList) &#123;</span><br><span class="line">            System.out.println(s);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> String name;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> age;</span><br><span class="line">    Person(String name, <span class="type">int</span> age)&#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setName</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getAge</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setAge</span><span class="params">(<span class="type">int</span> age)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>stream()方法：将集合转换为流</p>
+<p>map(Person::getName)：将List<Person>转化为List<String>，其中String元素为Person的name成员变量</p>
+<p>.sorted()方法：对流进行排序。</p>
+<p>limit(10)方法：只保留流中的前10个元素。</p>
+<p>collect(Collectors.toList)：将流转换为集合。</p>
+<p><strong>如果是以前，这一系列操作需要做个迭代器或者foreach循环，然后遍历，一步步完成操作；但是现在如果使用流，流既可以完成这些操作。</strong></p>
+<h1 id="流与集合"><a href="#流与集合" class="headerlink" title="流与集合"></a>流与集合</h1><ul>
+<li>集合是外部迭代，流式内部迭代</li>
+<li>流是一次性的，只能使用一次</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;String&gt; stream = list.stream().map(Person::getName).sorted().limit(<span class="number">10</span>);</span><br><span class="line">List&lt;String&gt; newList = stream.collect(toList);</span><br><span class="line">List&lt;String&gt; newList2 = stream.collect(toList);</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>这段代码，第三行会报错，因为流一旦使用，就被销毁了。</strong></p>
+<h1 id="方法实战"><a href="#方法实战" class="headerlink" title="方法实战"></a>方法实战</h1><p><strong>1、stream() parallelStream()</strong></p>
+<p>将集合转换为流，parallelStream()是并行流的方法，能够让数据集执行操作。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">List</span> <span class="variable">list</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>();</span><br><span class="line">list.stream();</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>2、filter(T-&gt;boolean)</strong></p>
+<p>保留boolean为true的元素</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 保留年龄为20的Person元素</span></span><br><span class="line">List&lt;Person&gt; list1 = list.stream()</span><br><span class="line">    .filter(person -&gt; person.getAge() == <span class="number">20</span>)</span><br><span class="line">    .collect(toList());</span><br><span class="line"><span class="comment">//打印输出[Person&#123;name=&#x27;jack&#x27;, age=20&#125;]</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>3、distinct()</strong></p>
+<p>去除重复的元素，这个方法是通过类的equals方法来判断两个元素是否相等的</p>
+<p>例如Person类，需要定义好equals方法，不然是无法进行处理的。</p>
+<p><strong>4、sorted &#x2F; sorted((T,T)-&gt;int)</strong></p>
+<p>如果流中的元素的类实现了Comparable接口，即有自己的排序规则，那么可以直接调用sorted()方法对元素进行排序，反之需要调用sorted((T,T)-&gt;int)实现Comparator接口。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Person&gt; newList2 = list.stream().sorted(<span class="keyword">new</span> <span class="title class_">Comparator</span>&lt;Person&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">compare</span><span class="params">(Person o1, Person o2)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> Integer.compare(o1.getAge(),o2.getAge());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).collect(toList());</span><br><span class="line"><span class="comment">// 使用Lambda表达式实现定制排序</span></span><br><span class="line">List&lt;Person&gt; newList3 = list.stream()</span><br><span class="line">        .sorted((p1, p2) -&gt; Integer.compare(p1.getAge(), p2.getAge()))</span><br><span class="line">        .collect(toList());</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>5、limit(long n)</strong></p>
+<p>返回前n个元素</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Person&gt; list3 = list.stream().sorted().limit(<span class="number">2</span>).collect(Collectors.toList());</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>6、skip</strong></p>
+<p>去除前n个元素</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Person&gt; list1 = list.stream().skip(<span class="number">1</span>).collect(toList());</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>7、map(T -&gt; R)</strong></p>
+<p>将流中的每一个元素T映射为R（类似类型转换）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Integer&gt; list2 = list.stream().map(Person::getAge).collect(toList());</span><br></pre></td></tr></table></figure>
+
+
+
+<p>list2 里面的元素为 list 中每一个Person对象的name变量</p>
+<p><strong>8、flatMap(T -&gt; Stream)</strong></p>
+<p>将流中的每一个元素T映射为一个流，再把每一个流连接成一个流</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; list = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">list.add(<span class="string">&quot;aaa bbb ccc&quot;</span>);</span><br><span class="line">list.add(<span class="string">&quot;ddd eee fff&quot;</span>);</span><br><span class="line">list.add(<span class="string">&quot;ggg hhh iii&quot;</span>);</span><br><span class="line"> </span><br><span class="line">list = list.stream().map(s -&gt; s.split(<span class="string">&quot; &quot;</span>)).</span><br><span class="line">flatMap(Arrays::stream).collect(toList());</span><br></pre></td></tr></table></figure>
+
+
+
+<p>上面例子中，我们的目的是把 List 中每个字符串元素以” “分割开，变成一个新的 List。</p>
+<p>首先 map 方法分割每个字符串元素，但此时流的类型为 Stream，因为 split 方法返回的是 String[ ] 类型；所以我们需要使用 flatMap 方法，先使用Arrays::stream将每个 String[ ] 元素变成一个 Stream流，然后 flatMap 会将每一个流连接成为一个流，最终返回我们需要的 Stream.</p>
+<p><strong>9、anyMatch(T -&gt; boolean)</strong></p>
+<p>流中是否有一个元素匹配给定的T -&gt; boolean 条件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">boolean</span> <span class="variable">b</span> <span class="operator">=</span> list.stream().anyMatch(person -&gt; person.getAge == <span class="number">20</span>);</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>10、allMatch(T -&gt; boolean)</strong></p>
+<p>流中是否所有的元素都匹配给定的 T-&gt;boolean条件</p>
+<p><strong>11、noneMatch(T -&gt; boolean)</strong></p>
+<p>流中是否没有元素匹配给定的条件。</p>
+<p><strong>12. findAny() 和 findFirst()</strong></p>
+<ul>
+<li>findAny()：找到其中一个元素 （使用 stream() 时找到的是第一个元素；使用 parallelStream() 并行时找到的是其中一个元素）</li>
+<li>findFirst()：找到第一个元素</li>
+</ul>
+<p><strong>13. reduce((T, T) -&gt; T) 和 reduce(T, (T, T) -&gt; T)</strong></p>
+<p>用于组合流中的元素，如求和，求积，求最大值等</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//计算年龄总和：</span></span><br><span class="line"><span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> list.stream().map(Person::getAge).reduce(<span class="number">0</span>, (a, b) -&gt; a + b);</span><br><span class="line"><span class="comment">//与之相同:</span></span><br><span class="line"><span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> list.stream().map(Person::getAge).reduce(<span class="number">0</span>, Integer::sum);</span><br></pre></td></tr></table></figure>
+
+<p>其中，reduce 第一个参数 0 代表起始值为 0，<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=lambda&spm=1001.2101.3001.7020">lambda</a> (a, b) -&gt; a + b 即将两值相加产生一个新值。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//计算年龄总乘积：</span></span><br><span class="line"><span class="type">int</span> <span class="variable">sum</span> <span class="operator">=</span> list.stream().map(Person::getAge).reduce(<span class="number">1</span>, (a, b) -&gt; a * b);</span><br><span class="line"><span class="comment">//当然也可以</span></span><br><span class="line">Optional&lt;Integer&gt; sum = list.stream().map(Person::getAge).reduce(Integer::sum);</span><br></pre></td></tr></table></figure>
+
+<p>即不接受任何起始值，但因为没有初始值，需要考虑结果可能不存在的情况，因此返回的是 Optional 类型</p>
+<p><strong>13. count()</strong></p>
+<p>返回流中元素个数，结果为 long 类型</p>
+<p><strong>14. collect()</strong></p>
+<p>收集方法，我们很常用的是 collect(toList())，当然还有 collect(toSet()) 等，参数是一个收集器接口</p>
+<p><strong>15. forEach()</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//打印各个元素：</span></span><br><span class="line">list.stream().forEach(System.out::println);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>&#x2F;&#x2F;向数据库插入新元素：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list.stream().forEach(PersonMapper::insertPerson);</span><br></pre></td></tr></table></figure>
+
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>请作者喝杯奶茶吧！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="Li Honghao 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Java/" rel="tag"># Java</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/08/24/C-%E5%90%84%E7%B1%BB%E5%9E%8B%E5%A4%A7%E5%B0%8F%E6%80%BB%E7%BB%93/" rel="prev" title="C++各类型大小总结">
+      <i class="fa fa-chevron-left"></i> C++各类型大小总结
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFStream"><span class="nav-number">1.</span> <span class="nav-text">什么是Stream</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%81%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">流操作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B5%81%E4%B8%8E%E9%9B%86%E5%90%88"><span class="nav-number">3.</span> <span class="nav-text">流与集合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E5%AE%9E%E6%88%98"><span class="nav-number">4.</span> <span class="nav-text">方法实战</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Li Honghao"
+      src="/images/avatar1.gif">
+  <p class="site-author-name" itemprop="name">Li Honghao</p>
+  <div class="site-description" itemprop="description">C++、Java、MySQL、Linux、安全、BMC</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lhh-cmd" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lhh-cmd" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://dashi.163.com/login/?from=dashi" title="E-Mail → https:&#x2F;&#x2F;dashi.163.com&#x2F;login&#x2F;?from&#x3D;dashi" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/HaoStar00" title="Twitter → https:&#x2F;&#x2F;twitter.com&#x2F;HaoStar00" rel="noopener" target="_blank"><i class="fab fa-twitter fa-fw"></i>Twitter</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/QQ896357473" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;QQ896357473" rel="noopener" target="_blank">CSDN</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+      
+        <div>
+           <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="410" height="110" src="//music.163.com/outchain/player?type=2&id=31445772&auto=1&height=66"></iframe>
+        </div>
+      
+
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2020 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Li Honghao</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'k1olnQSil3rNzLIFw4lBw77r-gzGzoHsz',
+      appKey     : 'TcdT0hN2dDHDu9qvf8Gk8ues',
+      placeholder: "(～￣▽￣)～来呀！吐槽一番吧！！！",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : true,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+  
+    <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+
+<!-- ҳ����С���� -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
